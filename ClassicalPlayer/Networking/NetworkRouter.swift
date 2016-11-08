@@ -19,7 +19,6 @@ enum NetworkRouter: URLRequestConvertible {
     case Videos(request : String)
 
     func asURLRequest() throws -> URLRequest {
-
         let url = try urlPath().asURL()
 
         var urlRequest = URLRequest(url: url)
@@ -32,6 +31,7 @@ enum NetworkRouter: URLRequestConvertible {
         case .Videos(let request):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: ["part" : "snippet", "type": "video", "q" : request, "key" : NetworkRouter.youtubeApiKey])
         }
+
         return urlRequest
     }
 

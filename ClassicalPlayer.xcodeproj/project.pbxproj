@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557581F1DD2584F00CCC37A /* ResultParser.swift */; };
+		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -19,7 +21,7 @@
 		E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */; };
 		E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */; };
 		E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */; };
-		E5F4BEAF1DD0E4E8003E5DDA /* ComposersSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEAE1DD0E4E8003E5DDA /* ComposersSearchViewController.swift */; };
+		E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */; };
 		E5F4BEB11DD0E6CF003E5DDA /* CompositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */; };
 		E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEB71DD0ED79003E5DDA /* Video.swift */; };
 		E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEBC1DD2145B003E5DDA /* Composer.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E557581F1DD2584F00CCC37A /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
+		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSerializer.swift; sourceTree = "<group>"; };
-		E5F4BEAE1DD0E4E8003E5DDA /* ComposersSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersSearchViewController.swift; sourceTree = "<group>"; };
+		E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersViewController.swift; sourceTree = "<group>"; };
 		E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionsViewController.swift; sourceTree = "<group>"; };
 		E5F4BEB71DD0ED79003E5DDA /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		E5F4BEBC1DD2145B003E5DDA /* Composer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */,
 				E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */,
 				E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */,
+				E557581F1DD2584F00CCC37A /* ResultParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -145,7 +150,7 @@
 		E5F4BEB31DD0E73E003E5DDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E5F4BEAE1DD0E4E8003E5DDA /* ComposersSearchViewController.swift */,
+				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
 				E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -156,6 +161,7 @@
 			children = (
 				E5F4BE7F1DD0DF86003E5DDA /* LaunchScreen.storyboard */,
 				E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */,
+				E564DEA31DD25D34005AFC3B /* ComposerCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,13 +309,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F4BEB11DD0E6CF003E5DDA /* CompositionsViewController.swift in Sources */,
+				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,
 				E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */,
-				E5F4BEAF1DD0E4E8003E5DDA /* ComposersSearchViewController.swift in Sources */,
+				E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */,
 				E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */,
 				E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */,
 				E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */,
 				E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */,
 				E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */,
+				E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

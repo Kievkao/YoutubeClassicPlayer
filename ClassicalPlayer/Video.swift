@@ -8,13 +8,6 @@
 
 import Foundation
 
-final class Video: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
-
-    init?(response: HTTPURLResponse, representation: Any) {
-        print("s");
-    }
-
-    var description: String {
-        return "I'm video"
-    }
+struct Video {
+    let url: String
 }

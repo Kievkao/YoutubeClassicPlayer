@@ -15,16 +15,18 @@ import OAuthSwiftAlamofire
 final class NetworkManager {
 
     func loadComsposersWithCompletion(completion: @escaping (_ composers : Array<Composer>?, Error?) -> Void) {
-
         Alamofire.request(NetworkRouter.Composers).validate().responseJSON { response in
-            debugPrint(response)
+            if let value = response.result.value as? [String : AnyObject] {
+                completion(ResultParser.parseComposers(jsonDict: value), nil);
+            }
         }
     }
 
     func loadVideos(request : String, completion:@escaping (_ videos : Array<Video>?, Error?) -> Void) {
-
         Alamofire.request(NetworkRouter.Videos(request: request)).validate().responseJSON { response in
-            debugPrint(response)
+            if let value = response.result.value as? [String : AnyObject] {
+                completion(ResultParser.parseVideos(jsonDict: value), nil);
+            }
         }
     }
 }

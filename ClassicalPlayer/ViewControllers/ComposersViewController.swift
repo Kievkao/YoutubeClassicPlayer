@@ -1,5 +1,5 @@
 //
-//  ComposersSearchViewController.swift
+//  ComposersViewController.swift
 //  ClassicalPlayer
 //
 //  Created by Kravchenko, Andrii on 11/7/16.
@@ -8,21 +8,26 @@
 
 import UIKit
 
-class ComposersSearchViewController: UITableViewController, UISearchResultsUpdating{
+class ComposersViewController: UITableViewController, UISearchResultsUpdating{
 
     let searchController = UISearchController(searchResultsController: nil)
     let networkManager = NetworkManager()
+
+    var composers: [Composer]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-        networkManager.loadComsposersWithCompletion { (composers, error) in
-            debugPrint("s");
+        networkManager.loadComsposersWithCompletion { [weak self] (composers, error) in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.composers = composers
+
+            strongSelf.tableView.reloadData()
         }
-//        networkManager.loadVideos(request: "bach") { [weak self] (videos, error) in
-//            
-//        }
     }
 
     func setup() {
@@ -33,11 +38,18 @@ class ComposersSearchViewController: UITableViewController, UISearchResultsUpdat
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return composers?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ComposerCell", for: indexPath) as! ComposerCell
+
+        if let composer = composers?[indexPath.row] {
+            cell.nameLabel.text = composer.name
+        }
+
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
