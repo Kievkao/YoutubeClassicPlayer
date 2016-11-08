@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" ~> 4.0
+github "jdg/MBProgressHUD" ~> 1.0.0
+github "OAuthSwift/OAuthSwift"
+github "OAuthSwift/OAuthSwiftAlamofire"
