@@ -10,6 +10,8 @@ import UIKit
 
 class CompositionsViewController: UITableViewController {
 
+    var composer: Composer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

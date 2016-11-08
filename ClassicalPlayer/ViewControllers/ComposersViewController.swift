@@ -13,7 +13,8 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
     let searchController = UISearchController(searchResultsController: nil)
     let networkManager = NetworkManager()
 
-    var composers: [Composer]?
+    var composers = [Composer]()
+    var filteredComposers = [Composer]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,7 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
                 return
             }
 
-            strongSelf.composers = composers
-
+            strongSelf.composers = composers ?? []
             strongSelf.tableView.reloadData()
         }
     }
@@ -38,25 +38,48 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return composers?.count ?? 0
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredComposers.count
+        }
+        else {
+            return composers.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComposerCell", for: indexPath) as! ComposerCell
 
-        if let composer = composers?[indexPath.row] {
-            cell.nameLabel.text = composer.name
-        }
+        let composer = composerFor(indexPath: indexPath)
+
+        cell.nameLabel.text = composer.name
 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let composer = composerFor(indexPath: tableView.indexPathForSelectedRow!)
+        (segue.destination as! CompositionsViewController).composer = composer
+    }
+
+    func composerFor(indexPath: IndexPath) -> Composer {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredComposers[indexPath.row]
+        }
+        else {
+            return composers[indexPath.row]
+        }
     }
 
     func updateSearchResults(for searchController: UISearchController) {
+        filterContentFor(searchText: searchController.searchBar.text!)
+    }
 
+    func filterContentFor(searchText: String, scope: String = "All") {
+        filteredComposers = composers.filter { composer in
+            return composer.name.lowercased().contains(searchText.lowercased())
+        }
+
+        tableView.reloadData()
     }
 }
