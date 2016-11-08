@@ -29,6 +29,26 @@ final class ResultParser {
     }
 
     static func parseVideos(jsonDict: [String : AnyObject]) -> [Video]? {
-        return nil;
+        guard let resultsArray = jsonDict["items"] as? [AnyObject] else {
+            return []
+        }
+
+        var videos = [Video]()
+
+        for videoDict in resultsArray {
+            if  let videoId = (videoDict["id"] as? [String: AnyObject])?["videoId"] as? String,
+                let title = (videoDict["snippet"] as? [String: AnyObject])?["title"] as? String,
+                let thumbnailsDict = (videoDict["snippet"] as? [String: AnyObject])?["thumbnails"] {
+
+                var video = Video(title: title, videoId: videoId, thumbnailURL: nil)
+
+                if let thumbnailURL = (thumbnailsDict["default"]  as? [String: AnyObject])?["url"] as? String {
+                    video.thumbnailURL = thumbnailURL
+                }
+
+                videos.append(video)
+            }
+        }
+        return videos
     }
 }

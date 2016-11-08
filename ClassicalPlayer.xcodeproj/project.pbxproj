@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557581F1DD2584F00CCC37A /* ResultParser.swift */; };
 		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
+		E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA51DD26545005AFC3B /* CompositionCell.swift */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		E557581F1DD2584F00CCC37A /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
+		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				E5F4BE7F1DD0DF86003E5DDA /* LaunchScreen.storyboard */,
 				E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */,
 				E564DEA31DD25D34005AFC3B /* ComposerCell.swift */,
+				E564DEA51DD26545005AFC3B /* CompositionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */,
 				E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */,
 				E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */,
+				E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */,
 				E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */,
 				E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */,
 				E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */,

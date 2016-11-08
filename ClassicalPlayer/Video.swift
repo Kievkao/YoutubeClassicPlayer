@@ -9,5 +9,7 @@
 import Foundation
 
 struct Video {
-    let url: String
+    let title: String
+    let videoId: String
+    var thumbnailURL: String?
 }
