@@ -31,6 +31,11 @@ class CompositionsViewController: UITableViewController {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let video = compositions[tableView.indexPathForSelectedRow!.row]
+        (segue.destination as! PlaybackViewController).videoId = video.videoId
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return compositions.count
     }

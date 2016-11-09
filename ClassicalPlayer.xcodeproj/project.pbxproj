@@ -10,6 +10,9 @@
 		E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557581F1DD2584F00CCC37A /* ResultParser.swift */; };
 		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
 		E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA51DD26545005AFC3B /* CompositionCell.swift */; };
+		E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */; };
+		E564DECF1DD362BD005AFC3B /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E564DECE1DD362BD005AFC3B /* YTPlayerView.m */; };
+		E56B6FC71DD37E36007BBBE4 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56B6FC61DD37E36007BBBE4 /* Assets.bundle */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -42,6 +45,11 @@
 		E557581F1DD2584F00CCC37A /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
 		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
+		E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
+		E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassicalPlayer-Bridging-Header.h"; sourceTree = "<group>"; };
+		E564DECD1DD362BD005AFC3B /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		E564DECE1DD362BD005AFC3B /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		E56B6FC61DD37E36007BBBE4 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E564DECB1DD36298005AFC3B /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E56B6FC61DD37E36007BBBE4 /* Assets.bundle */,
+				E564DECD1DD362BD005AFC3B /* YTPlayerView.h */,
+				E564DECE1DD362BD005AFC3B /* YTPlayerView.m */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
 		E5F4BE6A1DD0DF86003E5DDA = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +132,8 @@
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
+				E564DECB1DD36298005AFC3B /* ThirdParty */,
+				E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */,
 			);
 			path = ClassicalPlayer;
 			sourceTree = "<group>";
@@ -154,6 +174,7 @@
 			children = (
 				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
 				E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */,
+				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,7 +259,14 @@
 				TargetAttributes = {
 					E5F4BE721DD0DF86003E5DDA = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 499RHTV973;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					E5F4BE861DD0DF86003E5DDA = {
 						CreatedOnToolsVersion = 8.1;
@@ -271,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56B6FC71DD37E36007BBBE4 /* Assets.bundle in Resources */,
 				E5F4BE811DD0DF86003E5DDA /* LaunchScreen.storyboard in Resources */,
 				E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */,
 				E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */,
@@ -317,9 +346,11 @@
 				E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */,
 				E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */,
 				E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */,
+				E564DECF1DD362BD005AFC3B /* YTPlayerView.m in Sources */,
 				E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */,
 				E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */,
 				E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */,
+				E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */,
 				E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */,
 				E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */,
 			);
@@ -462,6 +493,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 499RHTV973;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -470,6 +503,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kievkao.com.ClassicalPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassicalPlayer/ClassicalPlayer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -478,6 +513,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 499RHTV973;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -486,6 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kievkao.com.ClassicalPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassicalPlayer/ClassicalPlayer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

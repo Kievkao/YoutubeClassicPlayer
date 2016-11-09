@@ -22,7 +22,7 @@ final class NetworkManager {
         }
     }
 
-    func loadVideos(request : String, completion:@escaping (_ videos : Array<Video>?, Error?) -> Void) {
+    func loadVideos(request: String, completion:@escaping (_ videos : Array<Video>?, Error?) -> Void) {
         Alamofire.request(NetworkRouter.Videos(request: request)).validate().responseJSON { response in
             if let value = response.result.value as? [String : AnyObject] {
                 completion(ResultParser.parseVideos(jsonDict: value), nil);

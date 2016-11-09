@@ -47,11 +47,9 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComposerCell", for: indexPath) as! ComposerCell
 
         let composer = composerFor(indexPath: indexPath)
-
         cell.nameLabel.text = composer.name
 
         return cell

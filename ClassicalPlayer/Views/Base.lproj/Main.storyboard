@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Ia-0c-aEF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ncb-zQ-v3K">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -68,7 +68,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rP3-2O-mqO" id="tBT-k8-cpf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-Fm-X4m">
@@ -85,6 +85,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="DO6-Fm-X4m" id="c4R-J1-1uG"/>
+                                    <segue destination="Ncb-zQ-v3K" kind="show" id="HGU-4j-7Ft"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,6 +98,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tV4-gu-8mF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1575" y="789"/>
+        </scene>
+        <!--Playback View Controller-->
+        <scene sceneID="5nH-Eb-gzU">
+            <objects>
+                <viewController id="Ncb-zQ-v3K" customClass="PlaybackViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bY0-m3-4z9"/>
+                        <viewControllerLayoutGuide type="bottom" id="MjQ-3X-DJt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KvS-ZR-HLU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bYB-YH-qut">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9v-Ma-BQJ" customClass="YTPlayerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jd-Ax-x8U">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bYB-YH-qut" secondAttribute="trailing" id="AXh-ah-ytG"/>
+                            <constraint firstAttribute="bottom" secondItem="bYB-YH-qut" secondAttribute="bottom" id="K0E-Ml-E6Q"/>
+                            <constraint firstItem="bYB-YH-qut" firstAttribute="top" secondItem="bY0-m3-4z9" secondAttribute="bottom" id="do2-QE-VWB"/>
+                            <constraint firstItem="bYB-YH-qut" firstAttribute="leading" secondItem="KvS-ZR-HLU" secondAttribute="leading" id="yEM-Rn-n4K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="y9v-Ma-BQJ" id="kT6-9K-6Ns"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fd-w2-uuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2304.8000000000002" y="790.25487256371821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YOf-gu-6IK">
