@@ -11,8 +11,11 @@
 		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
 		E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA51DD26545005AFC3B /* CompositionCell.swift */; };
 		E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */; };
-		E564DECF1DD362BD005AFC3B /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E564DECE1DD362BD005AFC3B /* YTPlayerView.m */; };
-		E56B6FC71DD37E36007BBBE4 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56B6FC61DD37E36007BBBE4 /* Assets.bundle */; };
+		E565F6701DD712B100EEEFD4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */; };
+		E565F6741DD7137200EEEFD4 /* ComposersListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */; };
+		E565F6761DD7140400EEEFD4 /* VideoListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */; };
+		E56B6FC91DD386A1007BBBE4 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */; };
+		E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -20,13 +23,10 @@
 		E5F4BE8C1DD0DF86003E5DDA /* ClassicalPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE8B1DD0DF86003E5DDA /* ClassicalPlayerTests.swift */; };
 		E5F4BEA11DD0E14D003E5DDA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F4BE9D1DD0E14D003E5DDA /* Alamofire.framework */; };
 		E5F4BEA21DD0E14D003E5DDA /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F4BE9E1DD0E14D003E5DDA /* MBProgressHUD.framework */; };
-		E5F4BEA31DD0E14D003E5DDA /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F4BE9F1DD0E14D003E5DDA /* OAuthSwift.framework */; };
-		E5F4BEA41DD0E14D003E5DDA /* OAuthSwiftAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F4BEA01DD0E14D003E5DDA /* OAuthSwiftAlamofire.framework */; };
 		E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */; };
 		E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */; };
-		E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */; };
 		E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */; };
-		E5F4BEB11DD0E6CF003E5DDA /* CompositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */; };
+		E5F4BEB11DD0E6CF003E5DDA /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEB01DD0E6CF003E5DDA /* VideosViewController.swift */; };
 		E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEB71DD0ED79003E5DDA /* Video.swift */; };
 		E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BEBC1DD2145B003E5DDA /* Composer.swift */; };
 /* End PBXBuildFile section */
@@ -47,9 +47,11 @@
 		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
 		E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
 		E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassicalPlayer-Bridging-Header.h"; sourceTree = "<group>"; };
-		E564DECD1DD362BD005AFC3B /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
-		E564DECE1DD362BD005AFC3B /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
-		E56B6FC61DD37E36007BBBE4 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersListDataProvider.swift; sourceTree = "<group>"; };
+		E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListDataProvider.swift; sourceTree = "<group>"; };
+		E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
+		E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackHolder.swift; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,9 +67,8 @@
 		E5F4BEA01DD0E14D003E5DDA /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
 		E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSerializer.swift; sourceTree = "<group>"; };
 		E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersViewController.swift; sourceTree = "<group>"; };
-		E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionsViewController.swift; sourceTree = "<group>"; };
+		E5F4BEB01DD0E6CF003E5DDA /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		E5F4BEB71DD0ED79003E5DDA /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		E5F4BEBC1DD2145B003E5DDA /* Composer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,8 +80,7 @@
 			files = (
 				E5F4BEA11DD0E14D003E5DDA /* Alamofire.framework in Frameworks */,
 				E5F4BEA21DD0E14D003E5DDA /* MBProgressHUD.framework in Frameworks */,
-				E5F4BEA31DD0E14D003E5DDA /* OAuthSwift.framework in Frameworks */,
-				E5F4BEA41DD0E14D003E5DDA /* OAuthSwiftAlamofire.framework in Frameworks */,
+				E56B6FC91DD386A1007BBBE4 /* XCDYouTubeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,14 +94,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E564DECB1DD36298005AFC3B /* ThirdParty */ = {
+		E565F66E1DD712A100EEEFD4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E56B6FC61DD37E36007BBBE4 /* Assets.bundle */,
-				E564DECD1DD362BD005AFC3B /* YTPlayerView.h */,
-				E564DECE1DD362BD005AFC3B /* YTPlayerView.m */,
+				E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */,
 			);
-			name = ThirdParty;
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E565F6711DD7134C00EEEFD4 /* ComposersList */ = {
+			isa = PBXGroup;
+			children = (
+				E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */,
+				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
+			);
+			name = ComposersList;
+			sourceTree = "<group>";
+		};
+		E565F6721DD7135900EEEFD4 /* VideosList */ = {
+			isa = PBXGroup;
+			children = (
+				E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */,
+				E5F4BEB01DD0E6CF003E5DDA /* VideosViewController.swift */,
+			);
+			name = VideosList;
 			sourceTree = "<group>";
 		};
 		E5F4BE6A1DD0DF86003E5DDA = {
@@ -126,13 +142,14 @@
 		E5F4BE751DD0DF86003E5DDA /* ClassicalPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
 				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
-				E564DECB1DD36298005AFC3B /* ThirdParty */,
+				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */,
 			);
 			path = ClassicalPlayer;
@@ -150,6 +167,7 @@
 		E5F4BE9C1DD0E14A003E5DDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */,
 				E5F4BE9D1DD0E14D003E5DDA /* Alamofire.framework */,
 				E5F4BE9E1DD0E14D003E5DDA /* MBProgressHUD.framework */,
 				E5F4BE9F1DD0E14D003E5DDA /* OAuthSwift.framework */,
@@ -163,7 +181,6 @@
 			children = (
 				E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */,
 				E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */,
-				E5F4BEAA1DD0E2E3003E5DDA /* NetworkSerializer.swift */,
 				E557581F1DD2584F00CCC37A /* ResultParser.swift */,
 			);
 			path = Networking;
@@ -172,8 +189,8 @@
 		E5F4BEB31DD0E73E003E5DDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
-				E5F4BEB01DD0E6CF003E5DDA /* CompositionsViewController.swift */,
+				E565F6711DD7134C00EEEFD4 /* ComposersList */,
+				E565F6721DD7135900EEEFD4 /* VideosList */,
 				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
 			path = ViewControllers;
@@ -299,7 +316,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56B6FC71DD37E36007BBBE4 /* Assets.bundle in Resources */,
 				E5F4BE811DD0DF86003E5DDA /* LaunchScreen.storyboard in Resources */,
 				E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */,
 				E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */,
@@ -324,8 +340,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwiftAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/XCDYouTubeKit.framework",
 			);
 			outputPaths = (
 			);
@@ -340,18 +355,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F4BEB11DD0E6CF003E5DDA /* CompositionsViewController.swift in Sources */,
+				E565F6741DD7137200EEEFD4 /* ComposersListDataProvider.swift in Sources */,
+				E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */,
+				E5F4BEB11DD0E6CF003E5DDA /* VideosViewController.swift in Sources */,
 				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,
 				E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */,
 				E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */,
 				E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */,
 				E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */,
-				E564DECF1DD362BD005AFC3B /* YTPlayerView.m in Sources */,
 				E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */,
 				E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */,
 				E5F4BEB81DD0ED79003E5DDA /* Video.swift in Sources */,
 				E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */,
-				E5F4BEAD1DD0E2E3003E5DDA /* NetworkSerializer.swift in Sources */,
+				E565F6701DD712B100EEEFD4 /* UIViewControllerExtension.swift in Sources */,
+				E565F6761DD7140400EEEFD4 /* VideoListDataProvider.swift in Sources */,
 				E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

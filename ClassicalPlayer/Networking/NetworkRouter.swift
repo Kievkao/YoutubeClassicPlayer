@@ -13,10 +13,11 @@ enum NetworkRouter: URLRequestConvertible {
 
     static let youtubeURLPath = "https://www.googleapis.com/youtube/v3/search"
     static let idagioURLPath = "http://api.idagio.com/v2.0/metadata/composers"
+
     static let youtubeApiKey = "AIzaSyAI8_3ZywOy6_FoO_LrfvcxlQLdZaFrTlg"
 
     case Composers
-    case Videos(request : String)
+    case Videos(request : String, portionSize: UInt, pageToken : String?)
 
     func asURLRequest() throws -> URLRequest {
         let url = try urlPath().asURL()
@@ -28,8 +29,17 @@ enum NetworkRouter: URLRequestConvertible {
         case .Composers:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: nil)
 
-        case .Videos(let request):
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: ["part" : "snippet", "type": "video", "q" : request, "key" : NetworkRouter.youtubeApiKey])
+        case .Videos(let request, let portionSize, let pageToken):
+            var parameters: Parameters!
+
+            if let pageToken = pageToken {
+                parameters = ["part" : "snippet", "type": "video", "q" : request, "maxResults" : portionSize, "pageToken" : pageToken, "key" : NetworkRouter.youtubeApiKey]
+            }
+            else {
+                parameters = ["part" : "snippet", "type": "video", "q" : request, "maxResults" : portionSize, "key" : NetworkRouter.youtubeApiKey]
+            }
+
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         }
 
         return urlRequest

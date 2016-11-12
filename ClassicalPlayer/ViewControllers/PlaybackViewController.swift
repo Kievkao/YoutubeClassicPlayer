@@ -7,35 +7,30 @@
 //
 
 import UIKit
+import XCDYouTubeKit
 
-class PlaybackViewController: UIViewController, YTPlayerViewDelegate {
+class PlaybackViewController: UIViewController {
 
-    var videoId: String?
-
-    @IBOutlet weak var playerView: YTPlayerView!
+    var videoId: String? {
+        didSet {
+            PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
+            PlaybackHolder.shared.videoController.videoIdentifier = (videoId)
+        }
+    }
+    
+    @IBOutlet weak var videoContainerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playerView.load(withVideoId: "rrVDATvUitA", playerVars: ["playsinline" : 1, "controls" : 0, "autoplay" : 1, "showinfo": 0])
-        playerView.delegate = self
-//        if let videoId = self.videoId {
-//
-//        }
-    }
-
-    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        playerView.playVideo()
-    }
-
-    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        switch state {
-        case .paused:
-            playerView.playVideo()
-
-        default:
-            break;
+        if let videoId = self.videoId {
+            PlaybackHolder.shared.videoController.present(in: videoContainerView)
+            PlaybackHolder.shared.videoController.moviePlayer.play()
         }
+    }
+
+    deinit {
+        print("s");
     }
 
 }

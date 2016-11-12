@@ -1,3 +1,0 @@
-framework module OAuthSwiftAlamofire {
-    header "OAuthSwiftAlamofire-Swift.h"
-}

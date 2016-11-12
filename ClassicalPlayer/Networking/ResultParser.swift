@@ -28,9 +28,9 @@ final class ResultParser {
         return composers
     }
 
-    static func parseVideos(jsonDict: [String : AnyObject]) -> [Video]? {
+    static func parseVideos(jsonDict: [String : AnyObject]) -> ([Video]?, String?) {
         guard let resultsArray = jsonDict["items"] as? [AnyObject] else {
-            return []
+            return ([], nil)
         }
 
         var videos = [Video]()
@@ -49,6 +49,8 @@ final class ResultParser {
                 videos.append(video)
             }
         }
-        return videos
+
+        let pageToken = jsonDict["nextPageToken"] as? String
+        return (videos, pageToken)
     }
 }
