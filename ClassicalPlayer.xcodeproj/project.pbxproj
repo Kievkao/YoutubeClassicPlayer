@@ -53,7 +53,7 @@
 		E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersListDataProvider.swift; sourceTree = "<group>"; };
 		E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListDataProvider.swift; sourceTree = "<group>"; };
-		E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoListImagesLoader.swift; path = ../Networking/VideoListImagesLoader.swift; sourceTree = "<group>"; };
+		E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListImagesLoader.swift; sourceTree = "<group>"; };
 		E565F6791DD7319200EEEFD4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		E565F67B1DD732F300EEEFD4 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				E565F67B1DD732F300EEEFD4 /* UIImageExtension.swift */,
 				E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E565F6711DD7134C00EEEFD4 /* ComposersList */ = {
@@ -116,17 +116,17 @@
 				E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */,
 				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
 			);
-			name = ComposersList;
+			path = ComposersList;
 			sourceTree = "<group>";
 		};
 		E565F6721DD7135900EEEFD4 /* VideosList */ = {
 			isa = PBXGroup;
 			children = (
-				E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */,
 				E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */,
+				E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */,
 				E5F4BEB01DD0E6CF003E5DDA /* VideosViewController.swift */,
 			);
-			name = VideosList;
+			path = VideosList;
 			sourceTree = "<group>";
 		};
 		E5F4BE6A1DD0DF86003E5DDA = {
@@ -151,15 +151,15 @@
 		E5F4BE751DD0DF86003E5DDA /* ClassicalPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
+				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
 				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
-				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */,
+				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 			);
 			path = ClassicalPlayer;
 			sourceTree = "<group>";
@@ -209,10 +209,10 @@
 		E5F4BEB41DD0E748003E5DDA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5F4BE7F1DD0DF86003E5DDA /* LaunchScreen.storyboard */,
-				E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */,
 				E564DEA31DD25D34005AFC3B /* ComposerCell.swift */,
 				E564DEA51DD26545005AFC3B /* CompositionCell.swift */,
+				E5F4BE7F1DD0DF86003E5DDA /* LaunchScreen.storyboard */,
+				E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,10 +229,10 @@
 		E5F4BEB61DD0ED68003E5DDA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				E5F4BEB71DD0ED79003E5DDA /* Video.swift */,
 				E5F4BEBC1DD2145B003E5DDA /* Composer.swift */,
+				E5F4BEB71DD0ED79003E5DDA /* Video.swift */,
 			);
-			name = Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

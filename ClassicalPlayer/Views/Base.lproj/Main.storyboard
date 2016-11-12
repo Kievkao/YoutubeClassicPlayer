@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search composer-->
+        <!--Select composer-->
         <scene sceneID="GF3-BW-zF3">
             <objects>
                 <tableViewController id="BoN-gL-Bfl" customClass="ComposersViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,16 +49,16 @@
                             <outlet property="delegate" destination="BoN-gL-Bfl" id="azY-ni-Qna"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search composer" id="M48-kH-RzQ"/>
+                    <navigationItem key="navigationItem" title="Select composer" id="M48-kH-RzQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-PJ-2Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="855" y="790"/>
         </scene>
-        <!--Videos View Controller-->
+        <!--Select video-->
         <scene sceneID="xEo-Ly-ku3">
             <objects>
-                <tableViewController storyboardIdentifier="compositionsVC" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="compositionsVC" title="Select video" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Nx-4h-xa3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,14 +133,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jd-Ax-x8U">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-Ix-0Y9">
-                                                <rect key="frame" x="166" y="8" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frederic Chopin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-Ix-0Y9">
+                                                <rect key="frame" x="120" y="16" width="135" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-2k-QCA">
-                                                <rect key="frame" x="166" y="43" width="42" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piano concert #1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-2k-QCA">
+                                                <rect key="frame" x="123" y="48.5" width="128.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -148,9 +148,9 @@
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="u2g-2k-QCA" firstAttribute="top" secondItem="5Uq-Ix-0Y9" secondAttribute="bottom" constant="14.5" id="Fce-rk-QRo"/>
+                                            <constraint firstItem="u2g-2k-QCA" firstAttribute="top" secondItem="5Uq-Ix-0Y9" secondAttribute="bottom" constant="12" id="Fce-rk-QRo"/>
                                             <constraint firstItem="u2g-2k-QCA" firstAttribute="centerX" secondItem="1jd-Ax-x8U" secondAttribute="centerX" id="hXl-48-wUD"/>
-                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="top" secondItem="1jd-Ax-x8U" secondAttribute="top" constant="8" id="nFs-IW-bwR"/>
+                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="top" secondItem="1jd-Ax-x8U" secondAttribute="top" constant="16" id="nFs-IW-bwR"/>
                                             <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="centerX" secondItem="1jd-Ax-x8U" secondAttribute="centerX" id="vOF-iK-H5W"/>
                                         </constraints>
                                     </view>
@@ -166,7 +166,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="composerNameLabel" destination="5Uq-Ix-0Y9" id="Nzb-G0-lgC"/>
                         <outlet property="videoContainerView" destination="y9v-Ma-BQJ" id="Oly-qo-rju"/>
+                        <outlet property="videoTitleLabel" destination="u2g-2k-QCA" id="Py6-IE-QYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fd-w2-uuS" userLabel="First Responder" sceneMemberID="firstResponder"/>

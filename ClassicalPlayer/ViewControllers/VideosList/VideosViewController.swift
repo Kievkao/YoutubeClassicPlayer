@@ -95,6 +95,6 @@ class VideosViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let video = dataProvider.videoForIndexPath(indexPath: tableView.indexPathForSelectedRow!)
-        (segue.destination as! PlaybackViewController).videoId = video.videoId
+        (segue.destination as! PlaybackViewController).video = video
     }
 }

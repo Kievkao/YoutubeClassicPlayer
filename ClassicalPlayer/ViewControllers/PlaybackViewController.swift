@@ -11,10 +11,13 @@ import XCDYouTubeKit
 
 class PlaybackViewController: UIViewController {
 
-    var videoId: String? {
+    @IBOutlet weak var composerNameLabel: UILabel!
+    @IBOutlet weak var videoTitleLabel: UILabel!
+
+    var video: Video? {
         didSet {
             PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
-            PlaybackHolder.shared.videoController.videoIdentifier = (videoId)
+            PlaybackHolder.shared.videoController.videoIdentifier = video?.videoId
         }
     }
     
@@ -23,14 +26,9 @@ class PlaybackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let videoId = self.videoId {
-            PlaybackHolder.shared.videoController.present(in: videoContainerView)
-            PlaybackHolder.shared.videoController.moviePlayer.play()
-        }
-    }
+        videoTitleLabel.text = video?.title
 
-    deinit {
-        print("s");
+        PlaybackHolder.shared.videoController.present(in: videoContainerView)
+        PlaybackHolder.shared.videoController.moviePlayer.play()
     }
-
 }
