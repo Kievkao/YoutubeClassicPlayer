@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Select composer-->
+        <!--Composers-->
         <scene sceneID="GF3-BW-zF3">
             <objects>
                 <tableViewController id="BoN-gL-Bfl" customClass="ComposersViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,6 +33,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                     <constraints>
                                         <constraint firstItem="pMt-0j-vP1" firstAttribute="leading" secondItem="Eml-6T-Ca7" secondAttribute="leadingMargin" id="mfg-Zg-MGE"/>
                                         <constraint firstItem="pMt-0j-vP1" firstAttribute="centerY" secondItem="Eml-6T-Ca7" secondAttribute="centerY" id="sb3-PM-MKK"/>
@@ -49,16 +50,16 @@
                             <outlet property="delegate" destination="BoN-gL-Bfl" id="azY-ni-Qna"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select composer" id="M48-kH-RzQ"/>
+                    <navigationItem key="navigationItem" title="Composers" id="M48-kH-RzQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-PJ-2Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="855" y="790"/>
         </scene>
-        <!--Select video-->
+        <!--Videos-->
         <scene sceneID="xEo-Ly-ku3">
             <objects>
-                <tableViewController storyboardIdentifier="compositionsVC" title="Select video" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="compositionsVC" title="Videos" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Nx-4h-xa3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,25 +134,53 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jd-Ax-x8U">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frederic Chopin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-Ix-0Y9">
-                                                <rect key="frame" x="120" y="16" width="135" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frederic Chopin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-Ix-0Y9">
+                                                <rect key="frame" x="8" y="8" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piano concert #1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-2k-QCA">
-                                                <rect key="frame" x="123" y="48.5" width="128.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piano concert #1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-2k-QCA">
+                                                <rect key="frame" x="8" y="40.5" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuE-RS-BRO" userLabel="previousBtn">
+                                                <rect key="frame" x="40" y="146" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="dZc-pC-ef6"/>
+                                                    <constraint firstAttribute="height" constant="80" id="vJO-0q-l1g"/>
+                                                </constraints>
+                                                <state key="normal" image="previousIcon"/>
+                                                <connections>
+                                                    <action selector="previousButtonAction:" destination="Ncb-zQ-v3K" eventType="touchUpInside" id="A2r-Y2-ndC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0I-xz-iFw" userLabel="nextBtn">
+                                                <rect key="frame" x="255" y="146" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="DkR-Ls-xqh"/>
+                                                    <constraint firstAttribute="height" constant="80" id="pdd-td-Llw"/>
+                                                </constraints>
+                                                <state key="normal" image="nextIcon"/>
+                                                <connections>
+                                                    <action selector="nextButtonAction:" destination="Ncb-zQ-v3K" eventType="touchUpInside" id="nHZ-Ny-cd7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
+                                            <constraint firstItem="HuE-RS-BRO" firstAttribute="leading" secondItem="1jd-Ax-x8U" secondAttribute="leading" constant="40" id="3NX-1G-ZFk"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Uq-Ix-0Y9" secondAttribute="trailing" constant="8" id="Dup-D9-ULv"/>
                                             <constraint firstItem="u2g-2k-QCA" firstAttribute="top" secondItem="5Uq-Ix-0Y9" secondAttribute="bottom" constant="12" id="Fce-rk-QRo"/>
-                                            <constraint firstItem="u2g-2k-QCA" firstAttribute="centerX" secondItem="1jd-Ax-x8U" secondAttribute="centerX" id="hXl-48-wUD"/>
-                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="top" secondItem="1jd-Ax-x8U" secondAttribute="top" constant="16" id="nFs-IW-bwR"/>
-                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="centerX" secondItem="1jd-Ax-x8U" secondAttribute="centerX" id="vOF-iK-H5W"/>
+                                            <constraint firstItem="X0I-xz-iFw" firstAttribute="centerY" secondItem="1jd-Ax-x8U" secondAttribute="centerY" constant="35" id="Fqb-vN-7sm"/>
+                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="leading" secondItem="1jd-Ax-x8U" secondAttribute="leading" constant="8" id="VeR-aZ-3WA"/>
+                                            <constraint firstAttribute="trailing" secondItem="X0I-xz-iFw" secondAttribute="trailing" constant="40" id="Zu6-uU-XPg"/>
+                                            <constraint firstAttribute="trailing" secondItem="u2g-2k-QCA" secondAttribute="trailing" constant="8" id="dfl-8H-Zvv"/>
+                                            <constraint firstItem="u2g-2k-QCA" firstAttribute="leading" secondItem="1jd-Ax-x8U" secondAttribute="leading" constant="8" id="gba-d5-hAF"/>
+                                            <constraint firstItem="5Uq-Ix-0Y9" firstAttribute="top" secondItem="1jd-Ax-x8U" secondAttribute="top" constant="8" id="nFs-IW-bwR"/>
+                                            <constraint firstItem="HuE-RS-BRO" firstAttribute="centerY" secondItem="1jd-Ax-x8U" secondAttribute="centerY" constant="35" id="tNS-SY-9gK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -180,9 +209,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ia-0c-aEF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TsP-KN-u8K">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="TsP-KN-u8K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -194,4 +225,8 @@
             <point key="canvasLocation" x="141.59999999999999" y="791.15442278860576"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nextIcon" width="128" height="128"/>
+        <image name="previousIcon" width="128" height="128"/>
+    </resources>
 </document>

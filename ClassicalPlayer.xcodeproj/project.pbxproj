@@ -17,6 +17,7 @@
 		E565F6781DD72FAF00EEEFD4 /* VideoListImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */; };
 		E565F67A1DD7319200EEEFD4 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E565F6791DD7319200EEEFD4 /* AlamofireImage.framework */; };
 		E565F67C1DD732F300EEEFD4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F67B1DD732F300EEEFD4 /* UIImageExtension.swift */; };
+		E565F67F1DD73D8700EEEFD4 /* PlaybackDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */; };
 		E56B6FC91DD386A1007BBBE4 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */; };
 		E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		E565F6771DD72FAF00EEEFD4 /* VideoListImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListImagesLoader.swift; sourceTree = "<group>"; };
 		E565F6791DD7319200EEEFD4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		E565F67B1DD732F300EEEFD4 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackDataProvider.swift; sourceTree = "<group>"; };
 		E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
 		E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackHolder.swift; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
+				E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */,
 				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
 			path = Playback;
@@ -162,9 +165,9 @@
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
 				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
-				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
+				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
 			);
 			path = ClassicalPlayer;
@@ -206,8 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				E565F6711DD7134C00EEEFD4 /* ComposersList */,
-				E565F67D1DD7381400EEEFD4 /* Playback */,
 				E565F6721DD7135900EEEFD4 /* VideosList */,
+				E565F67D1DD7381400EEEFD4 /* Playback */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				E565F6741DD7137200EEEFD4 /* ComposersListDataProvider.swift in Sources */,
 				E565F6781DD72FAF00EEEFD4 /* VideoListImagesLoader.swift in Sources */,
 				E565F67C1DD732F300EEEFD4 /* UIImageExtension.swift in Sources */,
+				E565F67F1DD73D8700EEEFD4 /* PlaybackDataProvider.swift in Sources */,
 				E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */,
 				E5F4BEB11DD0E6CF003E5DDA /* VideosViewController.swift in Sources */,
 				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,

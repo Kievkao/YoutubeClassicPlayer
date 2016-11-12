@@ -48,6 +48,10 @@ class VideoListDataProvider {
         return videos[indexPath.row]
     }
 
+    func allVideos() -> [Video] {
+        return videos
+    }
+
     func loadImageFor(video: Video, completion:@escaping (_ image : UIImage?) -> Void) {
         guard let imageURL = video.thumbnailURL else {
             completion(nil)

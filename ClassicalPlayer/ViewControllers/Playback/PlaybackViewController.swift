@@ -14,19 +14,22 @@ class PlaybackViewController: UIViewController {
     @IBOutlet weak var composerNameLabel: UILabel!
     @IBOutlet weak var videoTitleLabel: UILabel!
 
-    var video: Video? {
+    private(set) var video: Video!
+
+    var dataProvider: PlaybackDataProvider! {
         didSet {
             PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
-            PlaybackHolder.shared.videoController.videoIdentifier = video?.videoId
         }
     }
 
     var composerName: String?
     
-    @IBOutlet weak var videoContainerView: UIView!
+    @IBOutlet weak private var videoContainerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        video = dataProvider.currentVideo()
 
         setupTitles()
         playVideo()
@@ -38,7 +41,22 @@ class PlaybackViewController: UIViewController {
     }
 
     private func playVideo() {
+        PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
+        PlaybackHolder.shared.videoController.videoIdentifier = video.videoId
+
         PlaybackHolder.shared.videoController.present(in: videoContainerView)
         PlaybackHolder.shared.videoController.moviePlayer.play()
+
+        setupTitles()
     }
+
+    @IBAction func previousButtonAction(_ sender: UIButton) {
+        video = dataProvider.nextVideo()
+        playVideo()
+    }
+
+    @IBAction func nextButtonAction(_ sender: UIButton) {
+        video = dataProvider.nextVideo()
+        playVideo()
+    }    
 }
