@@ -20,14 +20,24 @@ class PlaybackViewController: UIViewController {
             PlaybackHolder.shared.videoController.videoIdentifier = video?.videoId
         }
     }
+
+    var composerName: String?
     
     @IBOutlet weak var videoContainerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        videoTitleLabel.text = video?.title
+        setupTitles()
+        playVideo()
+    }
 
+    private func setupTitles() {
+        videoTitleLabel.text = video?.title
+        composerNameLabel.text = composerName
+    }
+
+    private func playVideo() {
         PlaybackHolder.shared.videoController.present(in: videoContainerView)
         PlaybackHolder.shared.videoController.moviePlayer.play()
     }

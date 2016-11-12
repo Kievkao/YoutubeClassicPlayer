@@ -49,7 +49,6 @@
 		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
 		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
 		E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
-		E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassicalPlayer-Bridging-Header.h"; sourceTree = "<group>"; };
 		E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E565F6731DD7137200EEEFD4 /* ComposersListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersListDataProvider.swift; sourceTree = "<group>"; };
 		E565F6751DD7140400EEEFD4 /* VideoListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListDataProvider.swift; sourceTree = "<group>"; };
@@ -129,6 +128,15 @@
 			path = VideosList;
 			sourceTree = "<group>";
 		};
+		E565F67D1DD7381400EEEFD4 /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
+				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
+			);
+			path = Playback;
+			sourceTree = "<group>";
+		};
 		E5F4BE6A1DD0DF86003E5DDA = {
 			isa = PBXGroup;
 			children = (
@@ -158,8 +166,6 @@
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
-				E564DECC1DD362BD005AFC3B /* ClassicalPlayer-Bridging-Header.h */,
-				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 			);
 			path = ClassicalPlayer;
 			sourceTree = "<group>";
@@ -200,8 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				E565F6711DD7134C00EEEFD4 /* ComposersList */,
+				E565F67D1DD7381400EEEFD4 /* Playback */,
 				E565F6721DD7135900EEEFD4 /* VideosList */,
-				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -533,7 +539,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kievkao.com.ClassicalPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ClassicalPlayer/ClassicalPlayer-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -553,7 +560,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kievkao.com.ClassicalPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ClassicalPlayer/ClassicalPlayer-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

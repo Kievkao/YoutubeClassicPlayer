@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="1575" y="789"/>
         </scene>
-        <!--Playback View Controller-->
+        <!--Player-->
         <scene sceneID="5nH-Eb-gzU">
             <objects>
-                <viewController id="Ncb-zQ-v3K" customClass="PlaybackViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Player" id="Ncb-zQ-v3K" customClass="PlaybackViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bY0-m3-4z9"/>
                         <viewControllerLayoutGuide type="bottom" id="MjQ-3X-DJt"/>
