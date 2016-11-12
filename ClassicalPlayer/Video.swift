@@ -11,5 +11,5 @@ import Foundation
 struct Video {
     let title: String
     let videoId: String
-    var thumbnailURL: String?
+    var thumbnailURL: URL?
 }

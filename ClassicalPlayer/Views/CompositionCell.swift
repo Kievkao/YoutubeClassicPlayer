@@ -10,5 +10,6 @@ import UIKit
 
 class CompositionCell: UITableViewCell {
 
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
 }

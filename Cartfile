@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.0
+github "Alamofire/AlamofireImage" ~> 3.1
 github "jdg/MBProgressHUD" ~> 1.0.0
 github "0xced/XCDYouTubeKit" ~> 2.5

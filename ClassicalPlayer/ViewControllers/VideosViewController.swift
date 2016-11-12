@@ -10,7 +10,8 @@ import UIKit
 
 class VideosViewController: UITableViewController {
 
-    let RemainedCellsBeforeLoadMore = 5
+    let remainedCellsBeforeLoadMore = 5
+    let tableViewEstimatedRowHeight: CGFloat = 50.0
 
     private var dataProvider: VideoListDataProvider!
     private(set) var isDataLoading = false
@@ -25,7 +26,13 @@ class VideosViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
         startVideosLoading()
+    }
+
+    func setupTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = tableViewEstimatedRowHeight
     }
 
     func startVideosLoading() {
@@ -43,7 +50,7 @@ class VideosViewController: UITableViewController {
     }
 
     private func needToLoadNewPortion(indexPath: IndexPath) -> Bool {
-        if !isDataLoading && indexPath.row > (dataProvider.numberOfVideos() - RemainedCellsBeforeLoadMore) {
+        if !isDataLoading && indexPath.row > (dataProvider.numberOfVideos() - remainedCellsBeforeLoadMore) {
             isDataLoading = true
             return true
         }
@@ -73,6 +80,17 @@ class VideosViewController: UITableViewController {
 
     func configureCell(cell: CompositionCell, withVideo video: Video) {
         cell.nameLabel.text = video.title
+        cell.thumbnailImageView.image = UIImage.placeholderImage()
+
+        dataProvider.loadImageFor(video: video) { (image) in
+            if let image = image {
+                cell.thumbnailImageView.image = image
+            }
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        dataProvider.cancelImageLoadingFor(video: dataProvider.videoForIndexPath(indexPath: indexPath));
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

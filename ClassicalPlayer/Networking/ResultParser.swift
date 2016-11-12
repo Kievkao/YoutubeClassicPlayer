@@ -42,7 +42,8 @@ final class ResultParser {
 
                 var video = Video(title: title, videoId: videoId, thumbnailURL: nil)
 
-                if let thumbnailURL = (thumbnailsDict["default"]  as? [String: AnyObject])?["url"] as? String {
+                if  let thumbnailURLString = (thumbnailsDict["default"] as? [String: AnyObject])?["url"] as? String,
+                    let thumbnailURL = URL(string: thumbnailURLString) {
                     video.thumbnailURL = thumbnailURL
                 }
 

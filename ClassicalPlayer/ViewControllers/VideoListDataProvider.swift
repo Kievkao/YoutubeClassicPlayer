@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kievkao. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class VideoListDataProvider {
 
@@ -14,6 +14,7 @@ class VideoListDataProvider {
     let composerName: String
 
     private let networkManager = NetworkManager()
+    private let imageLoader = VideoListImagesLoader()
 
     private(set) var videos = [Video]()
 
@@ -45,5 +46,20 @@ class VideoListDataProvider {
 
     func videoForIndexPath(indexPath: IndexPath) -> Video {
         return videos[indexPath.row]
+    }
+
+    func loadImageFor(video: Video, completion:@escaping (_ image : UIImage?) -> Void) {
+        guard let imageURL = video.thumbnailURL else {
+            completion(nil)
+            return
+        }
+
+        imageLoader.loadImageFor(imageURL: imageURL, completion: completion)
+    }
+
+    func cancelImageLoadingFor(video: Video) {
+        if let imageURL = video.thumbnailURL {
+            imageLoader.cancelImageLoadingFor(imageURL: imageURL)
+        }
     }
 }
