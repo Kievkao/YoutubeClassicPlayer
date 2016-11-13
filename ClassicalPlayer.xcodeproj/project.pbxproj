@@ -133,8 +133,8 @@
 		E565F67D1DD7381400EEEFD4 /* Playback */ = {
 			isa = PBXGroup;
 			children = (
-				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */,
+				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
 			path = Playback;
@@ -165,9 +165,9 @@
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
 				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
+				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BEB31DD0E73E003E5DDA /* ViewControllers */,
 				E5F4BEB41DD0E748003E5DDA /* Views */,
-				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
 			);
 			path = ClassicalPlayer;
