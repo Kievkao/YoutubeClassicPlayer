@@ -53,7 +53,7 @@
 		E565F66F1DD712B100EEEFD4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		E565F6731DD7137200EEEFD4 /* ComposersDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersDataProvider.swift; sourceTree = "<group>"; };
 		E565F6751DD7140400EEEFD4 /* ComposerVideosDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerVideosDataProvider.swift; sourceTree = "<group>"; };
-		E565F6771DD72FAF00EEEFD4 /* ImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
+		E565F6771DD72FAF00EEEFD4 /* ImagesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagesLoader.swift; path = ../ViewControllers/VideosList/ImagesLoader.swift; sourceTree = "<group>"; };
 		E565F6791DD7319200EEEFD4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		E565F67B1DD732F300EEEFD4 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackDataProvider.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 		E565F6721DD7135900EEEFD4 /* VideosList */ = {
 			isa = PBXGroup;
 			children = (
-				E565F6771DD72FAF00EEEFD4 /* ImagesLoader.swift */,
 				E565F6751DD7140400EEEFD4 /* ComposerVideosDataProvider.swift */,
 				E5F4BEB01DD0E6CF003E5DDA /* VideosViewController.swift */,
 			);
@@ -194,6 +193,7 @@
 		E5F4BEB21DD0E734003E5DDA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E565F6771DD72FAF00EEEFD4 /* ImagesLoader.swift */,
 				E5F4BEA81DD0E2E3003E5DDA /* NetworkManager.swift */,
 				E5F4BEA91DD0E2E3003E5DDA /* NetworkRouter.swift */,
 				E557581F1DD2584F00CCC37A /* ResultParser.swift */,
