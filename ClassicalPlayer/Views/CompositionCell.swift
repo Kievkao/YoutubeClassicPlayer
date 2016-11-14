@@ -10,6 +10,14 @@ import UIKit
 
 class CompositionCell: UITableViewCell {
 
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak private var thumbnailImageView: UIImageView!
+    @IBOutlet weak private var nameLabel: UILabel!
+
+    func setThumbnail(image: UIImage) {
+        thumbnailImageView.image = image
+    }
+
+    func setName(name: String) {
+        nameLabel.text = name
+    }
 }

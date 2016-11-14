@@ -1,5 +1,5 @@
 //
-//  VideoListDataProvider.swift
+//  ComposerVideosLoader.swift
 //  ClassicalPlayer
 //
 //  Created by Kravchenko, Andrii on 11/12/16.
@@ -8,17 +8,21 @@
 
 import UIKit
 
-class VideoListDataProvider {
+protocol ComposerVideosDataConsumer: class {
+    func videosDidLoad()
+}
+
+class ComposerVideosDataProvider {
 
     let portionSize: UInt
     let composerName: String
 
     private let networkManager = NetworkManager()
-    private let imageLoader = VideoListImagesLoader()
+    private let imagesLoader = ImagesLoader()
 
-    private(set) var videos = [Video]()
+    private var videos = [Video]()
 
-    weak var dataConsumer: VideosViewController?
+    weak var dataConsumer: ComposerVideosDataConsumer?
 
     init(composerName: String, portionSize: UInt) {
         self.composerName = composerName
@@ -58,12 +62,12 @@ class VideoListDataProvider {
             return
         }
 
-        imageLoader.loadImageFor(imageURL: imageURL, completion: completion)
+        imagesLoader.loadImageFor(imageURL: imageURL, completion: completion)
     }
 
     func cancelImageLoadingFor(video: Video) {
         if let imageURL = video.thumbnailURL {
-            imageLoader.cancelImageLoadingFor(imageURL: imageURL)
+            imagesLoader.cancelImageLoadingFor(imageURL: imageURL)
         }
     }
 }

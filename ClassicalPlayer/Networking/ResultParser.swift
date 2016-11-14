@@ -35,14 +35,14 @@ final class ResultParser {
 
         var videos = [Video]()
 
-        for videoDict in resultsArray {
-            if  let videoId = (videoDict["id"] as? [String: AnyObject])?["videoId"] as? String,
-                let title = (videoDict["snippet"] as? [String: AnyObject])?["title"] as? String,
-                let thumbnailsDict = (videoDict["snippet"] as? [String: AnyObject])?["thumbnails"] {
+        for case let videoDict as [String: AnyObject] in resultsArray {
+            if  let videoId = videoDict["id"]?["videoId"] as? String,
+                let title = videoDict["snippet"]?["title"] as? String,
+                let thumbnailsDict = videoDict["snippet"]?["thumbnails"] as? [String: AnyObject] {
 
                 var video = Video(title: title, videoId: videoId, thumbnailURL: nil)
 
-                if  let thumbnailURLString = (thumbnailsDict["default"] as? [String: AnyObject])?["url"] as? String,
+                if  let thumbnailURLString = thumbnailsDict["default"]?["url"] as? String,
                     let thumbnailURL = URL(string: thumbnailURLString) {
                     video.thumbnailURL = thumbnailURL
                 }

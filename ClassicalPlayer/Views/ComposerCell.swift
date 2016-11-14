@@ -10,5 +10,9 @@ import UIKit
 
 class ComposerCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak private var nameLabel: UILabel!
+
+    func setComposerName(name: String) {
+        nameLabel.text = name
+    }
 }

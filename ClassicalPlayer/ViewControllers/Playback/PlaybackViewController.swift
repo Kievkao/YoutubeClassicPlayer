@@ -29,25 +29,22 @@ class PlaybackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setProgressIndicatorVisibility(true)
         video = dataProvider.currentVideo()
 
+        setProgressIndicatorVisibility(true)
         setupTitles()
+        subscribeForNotifications()
         playVideo()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(notification:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidReceiveVideo(notif:)), name: NSNotification.Name.XCDYouTubeVideoPlayerViewControllerDidReceiveVideo, object:nil )
-    }
-
-    func applicationDidEnterBackground(notification: Notification) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            PlaybackHolder.shared.videoController.moviePlayer.play()
-        }
     }
 
     private func setupTitles() {
         videoTitleLabel.text = video?.title
         composerNameLabel.text = composerName
+    }
+
+    private func subscribeForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(notification:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidReceiveVideo(notif:)), name: NSNotification.Name.XCDYouTubeVideoPlayerViewControllerDidReceiveVideo, object:nil )
     }
 
     private func playVideo() {
@@ -59,9 +56,13 @@ class PlaybackViewController: UIViewController {
         setupTitles()
     }
 
+    //MARK: XCDYouTubeVideoPlayer delegate
+
     func playerDidReceiveVideo(notif: Notification) {
         setProgressIndicatorVisibility(false)
     }
+
+    //MARK: Actions
 
     @IBAction func previousButtonAction(_ sender: UIButton) {
         setProgressIndicatorVisibility(true)
@@ -73,6 +74,14 @@ class PlaybackViewController: UIViewController {
         setProgressIndicatorVisibility(true)
         video = dataProvider.nextVideo()
         playVideo()
+    }
+
+    //MARK: Other
+
+    func applicationDidEnterBackground(notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            PlaybackHolder.shared.videoController.moviePlayer.play()
+        }
     }
 
     deinit {

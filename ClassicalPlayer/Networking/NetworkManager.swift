@@ -16,7 +16,7 @@ final class NetworkManager {
     func loadComsposersWithCompletion(completion: @escaping (_ composers : Array<Composer>?, Error?) -> Void) {
         Alamofire.request(NetworkRouter.Composers).validate().responseJSON { response in
             if let value = response.result.value as? [String : AnyObject] {
-                completion(ResultParser.parseComposers(jsonDict: value), nil)
+                completion(ResultParser.parseComposers(jsonDict: value), response.result.error)
             }
         }
     }
@@ -27,7 +27,7 @@ final class NetworkManager {
                 let parsedResult = ResultParser.parseVideos(jsonDict: value)
 
                 self.pageToken = parsedResult.1
-                completion(parsedResult.0, nil)
+                completion(parsedResult.0, response.result.error)
             }
         }
     }

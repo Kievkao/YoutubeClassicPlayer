@@ -1,5 +1,5 @@
 //
-//  VideoListImagesLoader.swift
+//  ImagesLoader.swift
 //  ClassicalPlayer
 //
 //  Created by Kravchenko, Andrii on 11/12/16.
@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class VideoListImagesLoader {
+class ImagesLoader {
 
     private let imageCache = AutoPurgingImageCache()
 
@@ -18,7 +18,7 @@ class VideoListImagesLoader {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 5
         queue.qualityOfService = .userInitiated
-        queue.name = "Video list images loading queue"
+        queue.name = "Images loading queue"
 
         return queue
     }()

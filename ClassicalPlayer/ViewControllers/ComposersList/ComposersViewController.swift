@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ComposersViewController: UITableViewController, UISearchResultsUpdating{
+class ComposersViewController: UITableViewController, UISearchResultsUpdating, ComposersDataConsumer {
 
-    private lazy var dataProvider: ComposersListDataProvider = {
-        let composersProvider = ComposersListDataProvider()
+    private lazy var dataProvider: ComposersDataProvider = {
+        let composersProvider = ComposersDataProvider()
         composersProvider.dataConsumer = self
         return composersProvider
     }()
@@ -38,12 +38,12 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
         tableView.tableHeaderView = searchController.searchBar
     }
 
+    //MARK: Composers loading && ComposersDataConsumer
+
     func startComposersLoading() {
         setProgressIndicatorVisibility(true)
         dataProvider.loadComposers()
     }
-
-    //MARK: ComposersListDataProvider callback
 
     func composersDidLoad(composers: [Composer]) {
         self.composers = composers
@@ -58,15 +58,11 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
         return searchIsActive() ? filteredComposers.count : composers.count
     }
 
-    func searchIsActive() -> Bool {
-        return searchController.isActive && searchController.searchBar.text != ""
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComposerCell", for: indexPath) as! ComposerCell
 
         let composer = composerFor(indexPath: indexPath)
-        cell.nameLabel.text = composer.name
+        cell.setComposerName(name: composer.name)
 
         return cell
     }
@@ -85,15 +81,20 @@ class ComposersViewController: UITableViewController, UISearchResultsUpdating{
         }
     }
 
+    //MARK: Search controller helpers
+
+    func searchIsActive() -> Bool {
+        return searchController.isActive && searchController.searchBar.text != ""
+    }
+
     func updateSearchResults(for searchController: UISearchController) {
         filterContentFor(searchText: searchController.searchBar.text!)
     }
 
-    func filterContentFor(searchText: String, scope: String = "All") {
+    func filterContentFor(searchText: String) {
         filteredComposers = composers.filter { composer in
             return composer.name.lowercased().contains(searchText.lowercased())
         }
-
         tableView.reloadData()
     }
 }

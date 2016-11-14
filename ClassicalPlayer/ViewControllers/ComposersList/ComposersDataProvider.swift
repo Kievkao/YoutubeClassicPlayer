@@ -1,5 +1,5 @@
 //
-//  ComposersListDataProvider.swift
+//  ComposersDataProvider.swift
 //  ClassicalPlayer
 //
 //  Created by Kravchenko, Andrii on 11/12/16.
@@ -8,11 +8,14 @@
 
 import Foundation
 
-class ComposersListDataProvider {
+protocol ComposersDataConsumer: class {
+    func composersDidLoad(composers: [Composer])
+}
+
+class ComposersDataProvider {
 
     private let networkManager = NetworkManager()
-
-    weak var dataConsumer: ComposersViewController?
+    weak var dataConsumer: ComposersDataConsumer?
 
     func loadComposers() {
         networkManager.loadComsposersWithCompletion { [weak self] (composers, error) in
