@@ -20,6 +20,8 @@
 		E565F67F1DD73D8700EEEFD4 /* PlaybackDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */; };
 		E56B6FC91DD386A1007BBBE4 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */; };
 		E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */; };
+		E5DDA0471DFFF7A600D5375C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DDA0451DFFF7A500D5375C /* Realm.framework */; };
+		E5DDA0481DFFF7A600D5375C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DDA0461DFFF7A500D5375C /* RealmSwift.framework */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -59,6 +61,9 @@
 		E565F67E1DD73D8700EEEFD4 /* PlaybackDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackDataProvider.swift; sourceTree = "<group>"; };
 		E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
 		E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackHolder.swift; sourceTree = "<group>"; };
+		E5DDA0431DFFF56F00D5375C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../TEMP/realm-swift-2.1.1/ios/swift-3.0.1/RealmSwift.framework"; sourceTree = "<group>"; };
+		E5DDA0451DFFF7A500D5375C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		E5DDA0461DFFF7A500D5375C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +90,8 @@
 			files = (
 				E5F4BEA11DD0E14D003E5DDA /* Alamofire.framework in Frameworks */,
 				E565F67A1DD7319200EEEFD4 /* AlamofireImage.framework in Frameworks */,
+				E5DDA0471DFFF7A600D5375C /* Realm.framework in Frameworks */,
+				E5DDA0481DFFF7A600D5375C /* RealmSwift.framework in Frameworks */,
 				E5F4BEA21DD0E14D003E5DDA /* MBProgressHUD.framework in Frameworks */,
 				E56B6FC91DD386A1007BBBE4 /* XCDYouTubeKit.framework in Frameworks */,
 			);
@@ -182,6 +189,9 @@
 		E5F4BE9C1DD0E14A003E5DDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5DDA0451DFFF7A500D5375C /* Realm.framework */,
+				E5DDA0461DFFF7A500D5375C /* RealmSwift.framework */,
+				E5DDA0431DFFF56F00D5375C /* RealmSwift.framework */,
 				E565F6791DD7319200EEEFD4 /* AlamofireImage.framework */,
 				E56B6FC81DD386A1007BBBE4 /* XCDYouTubeKit.framework */,
 				E5F4BE9D1DD0E14D003E5DDA /* Alamofire.framework */,
@@ -357,6 +367,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XCDYouTubeKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);

@@ -13,17 +13,7 @@ import AlamofireImage
 class ImagesLoader {
 
     private let imageCache = AutoPurgingImageCache()
-
-    private var loadingQueue: OperationQueue = {
-        let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 5
-        queue.qualityOfService = .userInitiated
-        queue.name = "Images loading queue"
-
-        return queue
-    }()
-
-    private let ongoingOperations = NSMapTable<NSURL, BlockOperation> (keyOptions: NSPointerFunctions.Options.strongMemory, valueOptions: NSPointerFunctions.Options.weakMemory)
+    private let ongoingRequests = NSMapTable<NSURL, DataRequest> (keyOptions: NSPointerFunctions.Options.strongMemory, valueOptions: NSPointerFunctions.Options.weakMemory)
 
     func loadImageFor(imageURL: URL, completion:@escaping (_ image : UIImage?) -> Void) {
         if let cachedImage = imageCache.image(withIdentifier: imageURL.absoluteString)  {
@@ -31,24 +21,21 @@ class ImagesLoader {
             return
         }
 
-        let loadImageOperation = BlockOperation { 
-            Alamofire.request(imageURL).responseImage { response in
-                if let image = response.result.value {
-                    self.imageCache.add(image, withIdentifier: imageURL.absoluteString)
-                }
-                completion(response.result.value)
+        let request = Alamofire.request(imageURL).responseImage { response in
+            if let image = response.result.value {
+                self.imageCache.add(image, withIdentifier: imageURL.absoluteString)
             }
+            completion(response.result.value)
         }
-        ongoingOperations.setObject(loadImageOperation, forKey: NSURL(string: imageURL.absoluteString))
-        loadingQueue.addOperation(loadImageOperation)
+        ongoingRequests.setObject(request, forKey: NSURL(string: imageURL.absoluteString))
     }
 
     func cancelImageLoadingFor(imageURL: URL) {
         let nsURL = NSURL(string: imageURL.absoluteString)
 
-        if let operation = ongoingOperations.object(forKey: nsURL) {
-            operation.cancel()
-            ongoingOperations.removeObject(forKey: nsURL)
+        if let request = ongoingRequests.object(forKey: nsURL) {
+            request.cancel()
+            ongoingRequests.removeObject(forKey: nsURL)
         }
     }
 }
