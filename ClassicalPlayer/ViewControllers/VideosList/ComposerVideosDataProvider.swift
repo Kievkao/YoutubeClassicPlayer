@@ -18,6 +18,7 @@ class ComposerVideosDataProvider {
     let composerName: String
 
     private let networkManager = NetworkManager()
+    private let storageManager = StorageManager()
     private let imagesLoader = ImagesLoader()
 
     private var videos = [Video]()
@@ -39,7 +40,17 @@ class ComposerVideosDataProvider {
                 return
             }
 
-            strongSelf.videos.append(contentsOf: videos)
+            if strongSelf.storageManager.saveObjects(videos) != nil {
+                print("Realm save operation error")
+            }
+
+            var plainVideos = [Video]()
+
+            for realmObj in videos {
+                plainVideos.append(realmObj.plain())
+            }
+
+            strongSelf.videos.append(contentsOf:plainVideos)
             strongSelf.dataConsumer?.videosDidLoad()
         }
     }

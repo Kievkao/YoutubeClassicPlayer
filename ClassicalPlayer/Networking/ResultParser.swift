@@ -10,41 +10,45 @@ import Foundation
 
 final class ResultParser {
 
-    static func parseComposers(jsonDict: [String : AnyObject]) -> [Composer]? {
+    static func parseComposers(jsonDict: [String : AnyObject]) -> [ComposerRealm]? {
         guard let resultsArray = jsonDict["results"] as? [AnyObject] else {
             return []
         }
 
-        var composers = [Composer]()
+        var composers = [ComposerRealm]()
 
         for composerDict in resultsArray {
             if  let name = composerDict["name"] as? String,
                 let forename = composerDict["forename"] as? String,
                 let surname = composerDict["surname"] as? String {
-                let composer = Composer(forename: forename, surname: surname, name: name)
+                let composer = ComposerRealm()
+                composer.forename = forename
+                composer.surname = surname
+                composer.name = name
                 composers.append(composer)
             }
         }
         return composers
     }
 
-    static func parseVideos(jsonDict: [String : AnyObject]) -> ([Video]?, String?) {
+    static func parseVideos(jsonDict: [String : AnyObject]) -> ([VideoRealm]?, String?) {
         guard let resultsArray = jsonDict["items"] as? [AnyObject] else {
             return ([], nil)
         }
 
-        var videos = [Video]()
+        var videos = [VideoRealm]()
 
         for case let videoDict as [String: AnyObject] in resultsArray {
             if  let videoId = videoDict["id"]?["videoId"] as? String,
                 let title = videoDict["snippet"]?["title"] as? String,
                 let thumbnailsDict = videoDict["snippet"]?["thumbnails"] as? [String: AnyObject] {
 
-                var video = Video(title: title, videoId: videoId, thumbnailURL: nil)
+                let video = VideoRealm()
+                video.title = title
+                video.videoId = videoId
 
-                if  let thumbnailURLString = thumbnailsDict["default"]?["url"] as? String,
-                    let thumbnailURL = URL(string: thumbnailURLString) {
-                    video.thumbnailURL = thumbnailURL
+                if  let thumbnailURLString = thumbnailsDict["default"]?["url"] as? String {
+                    video.thumbnailURL = thumbnailURLString
                 }
 
                 videos.append(video)

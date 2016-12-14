@@ -7,6 +7,17 @@
 //
 
 import Foundation
+import RealmSwift
+
+class ComposerRealm: Object {
+    dynamic var forename: String = ""
+    dynamic var surname: String = ""
+    dynamic var name: String = ""
+
+    func plain() -> Composer {
+        return Composer(forename: forename, surname: surname, name: name)
+    }
+}
 
 struct Composer {
     let forename: String

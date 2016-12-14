@@ -22,6 +22,7 @@
 		E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */; };
 		E5DDA0471DFFF7A600D5375C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DDA0451DFFF7A500D5375C /* Realm.framework */; };
 		E5DDA0481DFFF7A600D5375C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DDA0461DFFF7A500D5375C /* RealmSwift.framework */; };
+		E5DDA04B1E000ADC00D5375C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DDA04A1E000ADC00D5375C /* StorageManager.swift */; };
 		E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */; };
 		E5F4BE7C1DD0DF86003E5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7A1DD0DF86003E5DDA /* Main.storyboard */; };
 		E5F4BE7E1DD0DF86003E5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F4BE7D1DD0DF86003E5DDA /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		E5DDA0431DFFF56F00D5375C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../TEMP/realm-swift-2.1.1/ios/swift-3.0.1/RealmSwift.framework"; sourceTree = "<group>"; };
 		E5DDA0451DFFF7A500D5375C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E5DDA0461DFFF7A500D5375C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		E5DDA04A1E000ADC00D5375C /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E5F4BE731DD0DF86003E5DDA /* ClassicalPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicalPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F4BE7B1DD0DF86003E5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = Playback;
 			sourceTree = "<group>";
 		};
+		E5DDA0491E000AD100D5375C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDA04A1E000ADC00D5375C /* StorageManager.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		E5F4BE6A1DD0DF86003E5DDA = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		E5F4BE751DD0DF86003E5DDA /* ClassicalPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E5DDA0491E000AD100D5375C /* Storage */,
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
 				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
@@ -392,6 +403,7 @@
 				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,
 				E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */,
 				E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */,
+				E5DDA04B1E000ADC00D5375C /* StorageManager.swift in Sources */,
 				E5F4BEAB1DD0E2E3003E5DDA /* NetworkManager.swift in Sources */,
 				E5F4BEAC1DD0E2E3003E5DDA /* NetworkRouter.swift in Sources */,
 				E5F4BE771DD0DF86003E5DDA /* AppDelegate.swift in Sources */,

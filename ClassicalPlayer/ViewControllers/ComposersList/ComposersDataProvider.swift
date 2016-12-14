@@ -15,15 +15,47 @@ protocol ComposersDataConsumer: class {
 class ComposersDataProvider {
 
     private let networkManager = NetworkManager()
+    private let storageManager = StorageManager()
+
     weak var dataConsumer: ComposersDataConsumer?
 
     func loadComposers() {
+
+        let cachedComposers = storageManager.retrieveObjects(type: ComposerRealm.self)
+
+        if cachedComposers.count > 0 {
+            processRetrievedObjects(objects: cachedComposers)
+        }
+        else {
+            loadComposersFromNetwork()
+        }
+    }
+
+    private func loadComposersFromNetwork() {
         networkManager.loadComsposersWithCompletion { [weak self] (composers, error) in
             guard let strongSelf = self else {
                 return
             }
 
-            strongSelf.dataConsumer?.composersDidLoad(composers: composers ?? [])
+            guard let composers = composers else {
+                return
+            }
+
+            if strongSelf.storageManager.saveObjects(composers) != nil {
+                print("Realm save operation error")
+            }
+
+            strongSelf.processRetrievedObjects(objects: composers)
         }
+    }
+
+    private func processRetrievedObjects(objects: [ComposerRealm]) {
+        var plainComposers = [Composer]()
+
+        for realmObj in objects {
+            plainComposers.append(realmObj.plain())
+        }
+
+        dataConsumer?.composersDidLoad(composers: plainComposers)
     }
 }

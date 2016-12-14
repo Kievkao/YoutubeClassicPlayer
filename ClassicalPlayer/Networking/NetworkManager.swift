@@ -13,7 +13,7 @@ final class NetworkManager {
 
     private var pageToken: String?
 
-    func loadComsposersWithCompletion(completion: @escaping (_ composers : Array<Composer>?, Error?) -> Void) {
+    func loadComsposersWithCompletion(completion: @escaping (_ composers : Array<ComposerRealm>?, Error?) -> Void) {
         Alamofire.request(NetworkRouter.Composers).validate().responseJSON { response in
             if let value = response.result.value as? [String : AnyObject] {
                 completion(ResultParser.parseComposers(jsonDict: value), response.result.error)
@@ -21,7 +21,7 @@ final class NetworkManager {
         }
     }
 
-    func loadVideos(request: String, portionSize: UInt, completion:@escaping (_ videos : Array<Video>?, Error?) -> Void) {
+    func loadVideos(request: String, portionSize: UInt, completion:@escaping (_ videos : Array<VideoRealm>?, Error?) -> Void) {
         Alamofire.request(NetworkRouter.Videos(request: request, portionSize: portionSize, pageToken: pageToken)).validate().responseJSON { response in
             if let value = response.result.value as? [String : AnyObject] {
                 let parsedResult = ResultParser.parseVideos(jsonDict: value)
