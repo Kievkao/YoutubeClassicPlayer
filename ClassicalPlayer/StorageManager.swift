@@ -25,9 +25,9 @@ class StorageManager {
         return nil
     }
 
-    func retrieveObjects<T:Object>(type: T.Type) -> [T] {
+    func retrieveObjects<T:Object>(type: T.Type, predicate: NSPredicate? = nil) -> [T] {
         let realm = try! Realm()
-        let results = realm.objects(type)
+        let results: Results<T> = (predicate != nil) ? realm.objects(type).filter(predicate!) : realm.objects(type)
         var unwiredObjects = [T]()
 
         for object in results {

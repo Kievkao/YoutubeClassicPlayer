@@ -24,7 +24,7 @@ final class NetworkManager {
     func loadVideos(request: String, portionSize: UInt, completion:@escaping (_ videos : Array<VideoRealm>?, Error?) -> Void) {
         Alamofire.request(NetworkRouter.Videos(request: request, portionSize: portionSize, pageToken: pageToken)).validate().responseJSON { response in
             if let value = response.result.value as? [String : AnyObject] {
-                let parsedResult = ResultParser.parseVideos(jsonDict: value)
+                let parsedResult = ResultParser.parseVideos(jsonDict: value, composerName: request)
 
                 self.pageToken = parsedResult.1
                 completion(parsedResult.0, response.result.error)

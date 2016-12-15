@@ -31,7 +31,7 @@ final class ResultParser {
         return composers
     }
 
-    static func parseVideos(jsonDict: [String : AnyObject]) -> ([VideoRealm]?, String?) {
+    static func parseVideos(jsonDict: [String : AnyObject], composerName: String) -> ([VideoRealm]?, String?) {
         guard let resultsArray = jsonDict["items"] as? [AnyObject] else {
             return ([], nil)
         }
@@ -46,6 +46,7 @@ final class ResultParser {
                 let video = VideoRealm()
                 video.title = title
                 video.videoId = videoId
+                video.composerName = composerName
 
                 if  let thumbnailURLString = thumbnailsDict["default"]?["url"] as? String {
                     video.thumbnailURL = thumbnailURLString

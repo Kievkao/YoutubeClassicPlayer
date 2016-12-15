@@ -31,6 +31,18 @@ class ComposerVideosDataProvider {
     }
 
     func loadNextVideos() {
+
+        let cachedVideos = storageManager.retrieveObjects(type: VideoRealm.self, predicate: Video.predicateForComposerName(composerName))
+
+        if cachedVideos.count > 0 {
+            processRetrievedObjects(objects: cachedVideos)
+        }
+        else {
+            loadVideosFromNetwork()
+        }
+    }
+
+    private func loadVideosFromNetwork() {
         networkManager.loadVideos(request: self.composerName, portionSize: portionSize) {  [weak self] (videos, error) in
             guard let strongSelf = self else {
                 return
@@ -53,6 +65,17 @@ class ComposerVideosDataProvider {
             strongSelf.videos.append(contentsOf:plainVideos)
             strongSelf.dataConsumer?.videosDidLoad()
         }
+    }
+
+    private func processRetrievedObjects(objects: [VideoRealm]) {
+        var plainVideos = [Video]()
+
+        for realmObj in objects {
+            plainVideos.append(realmObj.plain())
+        }
+
+        videos = plainVideos
+        dataConsumer?.videosDidLoad()
     }
 
     func numberOfVideos() -> Int {
