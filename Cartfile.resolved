@@ -1,5 +1,5 @@
-github "Alamofire/Alamofire" "4.2.0"
+github "Alamofire/Alamofire" "4.4.0"
 github "jdg/MBProgressHUD" "1.0.0"
-github "0xced/XCDYouTubeKit" "2.5.3"
-github "realm/realm-cocoa" "v2.1.1"
+github "0xced/XCDYouTubeKit" "2.5.5"
+github "realm/realm-cocoa" "v2.5.1"
 github "Alamofire/AlamofireImage" "3.2.0"
