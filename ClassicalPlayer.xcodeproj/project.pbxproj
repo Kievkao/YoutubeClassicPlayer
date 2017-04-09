@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E91AB561E9A3E520043003E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91AB551E9A3E520043003E /* SearchTableViewController.swift */; };
 		E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557581F1DD2584F00CCC37A /* ResultParser.swift */; };
 		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
 		E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA51DD26545005AFC3B /* CompositionCell.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E91AB551E9A3E520043003E /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		E557581F1DD2584F00CCC37A /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
 		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E91AB541E9A3E270043003E /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3E91AB551E9A3E520043003E /* SearchTableViewController.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
 		E565F66E1DD712A100EEEFD4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		E5F4BE751DD0DF86003E5DDA /* ClassicalPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				3E91AB541E9A3E270043003E /* BaseClasses */,
 				E5DDA0491E000AD100D5375C /* Storage */,
 				E5F4BEB61DD0ED68003E5DDA /* Entities */,
 				E565F66E1DD712A100EEEFD4 /* Extensions */,
@@ -401,6 +412,7 @@
 				E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */,
 				E5F4BEB11DD0E6CF003E5DDA /* VideosViewController.swift in Sources */,
 				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,
+				3E91AB561E9A3E520043003E /* SearchTableViewController.swift in Sources */,
 				E5F4BEBD1DD2145B003E5DDA /* Composer.swift in Sources */,
 				E5F4BEAF1DD0E4E8003E5DDA /* ComposersViewController.swift in Sources */,
 				E5DDA04B1E000ADC00D5375C /* StorageManager.swift in Sources */,
