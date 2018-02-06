@@ -50,5 +50,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>idagioApiHost</key>
+	<string>api.idagio.com</string>
+	<key>idagioStartPath</key>
+	<string>/v2.0</string>
+	<key>googleApiHost</key>
+	<string>googleapis.com</string>
+	<key>youtubeApiStartPath</key>
+	<string>/youtube/v3</string>
+	<key>scheme</key>
+	<string>http</string>
+	<key>youtubeApiKey</key>
+	<string>AIzaSyAI8_3ZywOy6_FoO_LrfvcxlQLdZaFrTlg</string>
+	<key>youtubeApiKeyParameter</key>
+	<string>api_key</string>
 </dict>
 </plist>

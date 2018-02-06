@@ -8,14 +8,18 @@
 
 import UIKit
 import AVFoundation
+import RxFlow
+import RxSwift
+import RxCocoa
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    let disposeBag = DisposeBag()
+    let coordinator = Coordinator()
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         return true
     }

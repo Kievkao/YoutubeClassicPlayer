@@ -19,7 +19,7 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
 
     var composer: Composer? {
         didSet {
-            dataProvider = ComposerVideosDataProvider(composerName:composer!.name, portionSize: 20)
+            dataProvider = ComposerVideosDataProvider(composerName:composer!.name!, portionSize: 20)
             dataProvider.dataConsumer = self
         }
     }
@@ -74,7 +74,7 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     }
 
     private func configureCell(cell: CompositionCell, withVideo video: Video) {
-        cell.setName(name: video.title)
+        cell.setName(name: video.title!)
         cell.setThumbnail(image: UIImage.placeholderImage())
 
         dataProvider.loadImageFor(video: video) { (image) in

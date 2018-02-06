@@ -21,11 +21,30 @@ class VideoRealm: Object {
 }
 
 struct Video {
-    let title: String
-    let videoId: String
+    let title: String?
+    let videoId: String?
     var thumbnailURL: URL?
-    var composerName: String
-
+    var composerName: String?
+    
+    init(json: [String: AnyObject]) {
+        videoId = json["id"]?["videoId"] as? String
+        title = json["snippet"]?["title"] as? String
+        
+        if let thumbnailsDict = json["snippet"]?["thumbnails"] as? [String: AnyObject],
+            let thumbnailURLString = thumbnailsDict["default"]?["url"] as? String {
+            thumbnailURL = URL(string: thumbnailURLString)
+        } else {
+            thumbnailURL = nil
+        }
+    }
+    
+    init(title: String?, videoId: String?, thumbnailURL: URL?, composerName: String?) {
+        self.title = title
+        self.videoId = videoId
+        self.thumbnailURL = thumbnailURL
+        self.composerName = composerName
+    }
+    
     static func predicateForComposerName(_ name: String) -> NSPredicate {
         return NSPredicate(format: "composerName = %@", name)
     }

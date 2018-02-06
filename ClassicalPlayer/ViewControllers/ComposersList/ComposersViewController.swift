@@ -43,7 +43,7 @@ class ComposersViewController: SearchTableViewController, ComposersDataConsumer 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComposerCell", for: indexPath) as! ComposerCell
 
         if let composer = itemFor(indexPath: indexPath) as? Composer {
-            cell.setComposerName(name: composer.name)
+            cell.setComposerName(name: composer.name!)
         }
 
         return cell
@@ -61,7 +61,7 @@ class ComposersViewController: SearchTableViewController, ComposersDataConsumer 
         
         filteredItems = items.filter {
             guard let composer = $0 as? Composer else { return false }
-            return composer.name.lowercased().contains(searchText.lowercased())
+            return composer.name!.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }

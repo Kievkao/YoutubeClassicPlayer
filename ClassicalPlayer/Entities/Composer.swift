@@ -20,7 +20,19 @@ class ComposerRealm: Object {
 }
 
 struct Composer {
-    let forename: String
-    let surname: String
-    let name: String
+    let forename: String?
+    let surname: String?
+    let name: String?
+    
+    init(json: [String: AnyObject]) {
+        forename = json["forename"] as? String
+        surname = json["surname"] as? String
+        name = json["name"] as? String
+    }
+    
+    init(forename: String?, surname: String?, name: String?) {
+        self.forename = forename
+        self.surname = surname
+        self.name = name
+    }
 }
