@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 class ComposerRealm: Object {
-    dynamic var forename: String = ""
-    dynamic var surname: String = ""
-    dynamic var name: String = ""
+    @objc dynamic var forename: String = ""
+    @objc dynamic var surname: String = ""
+    @objc dynamic var name: String = ""
 
     func plain() -> Composer {
         return Composer(forename: forename, surname: surname, name: name)

@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 class VideoRealm: Object {
-    dynamic var title: String = ""
-    dynamic var videoId: String = ""
-    dynamic var thumbnailURL: String?
-    dynamic var composerName: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var videoId: String = ""
+    @objc dynamic var thumbnailURL: String?
+    @objc dynamic var composerName: String = ""
 
     func plain() -> Video {
         return Video(title: title, videoId: videoId, thumbnailURL: thumbnailURL != nil ? URL(string: thumbnailURL!) : nil, composerName: composerName)

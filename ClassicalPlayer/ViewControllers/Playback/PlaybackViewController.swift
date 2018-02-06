@@ -58,7 +58,7 @@ class PlaybackViewController: UIViewController {
 
     //MARK: XCDYouTubeVideoPlayer delegate
 
-    func playerDidReceiveVideo(notif: Notification) {
+    @objc func playerDidReceiveVideo(notif: Notification) {
         setProgressIndicatorVisibility(false)
     }
 
@@ -78,7 +78,7 @@ class PlaybackViewController: UIViewController {
 
     //MARK: Other
 
-    func applicationDidEnterBackground(notification: Notification) {
+    @objc func applicationDidEnterBackground(notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             PlaybackHolder.shared.videoController.moviePlayer.play()
         }
