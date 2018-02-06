@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E34ADCB202A052A0097BA6C /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E34ADCA202A052A0097BA6C /* AppStep.swift */; };
 		3E7EB0852029C32000A4051C /* RxFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7EB0822029C32000A4051C /* RxFlow.framework */; };
 		3E7EB0862029C32000A4051C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7EB0832029C32000A4051C /* RxCocoa.framework */; };
 		3E7EB0872029C32000A4051C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7EB0842029C32000A4051C /* RxSwift.framework */; };
@@ -18,7 +19,6 @@
 		3E7EB0972029CBFD00A4051C /* ComposersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7EB0952029CBFC00A4051C /* ComposersService.swift */; };
 		3E7EB0982029CBFD00A4051C /* VideoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7EB0962029CBFC00A4051C /* VideoSearchService.swift */; };
 		3E91AB561E9A3E520043003E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91AB551E9A3E520043003E /* SearchTableViewController.swift */; };
-		E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557581F1DD2584F00CCC37A /* ResultParser.swift */; };
 		E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA31DD25D34005AFC3B /* ComposerCell.swift */; };
 		E564DEA61DD26545005AFC3B /* CompositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA51DD26545005AFC3B /* CompositionCell.swift */; };
 		E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */; };
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E34ADCA202A052A0097BA6C /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		3E7EB0822029C32000A4051C /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		3E7EB0832029C32000A4051C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3E7EB0842029C32000A4051C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		3E7EB0952029CBFC00A4051C /* ComposersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposersService.swift; sourceTree = "<group>"; };
 		3E7EB0962029CBFC00A4051C /* VideoSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSearchService.swift; sourceTree = "<group>"; };
 		3E91AB551E9A3E520043003E /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		E557581F1DD2584F00CCC37A /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		E564DEA31DD25D34005AFC3B /* ComposerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposerCell.swift; sourceTree = "<group>"; };
 		E564DEA51DD26545005AFC3B /* CompositionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionCell.swift; sourceTree = "<group>"; };
 		E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7EB0892029C49700A4051C /* ComposersFlow.swift */,
+				3E34ADCA202A052A0097BA6C /* AppStep.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -269,7 +270,6 @@
 				E5F4BEA91DD0E2E3003E5DDA /* APIRouter.swift */,
 				3E7EB0902029CA2700A4051C /* NetworkServiceFactory.swift */,
 				E565F6771DD72FAF00EEEFD4 /* ImagesLoader.swift */,
-				E557581F1DD2584F00CCC37A /* ResultParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -450,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E34ADCB202A052A0097BA6C /* AppStep.swift in Sources */,
 				E565F6741DD7137200EEEFD4 /* ComposersViewModel.swift in Sources */,
 				3E7EB0972029CBFD00A4051C /* ComposersService.swift in Sources */,
 				E565F6781DD72FAF00EEEFD4 /* ImagesLoader.swift in Sources */,
@@ -460,7 +461,6 @@
 				E56B6FCB1DD38AAB007BBBE4 /* PlaybackHolder.swift in Sources */,
 				E5F4BEB11DD0E6CF003E5DDA /* VideosViewController.swift in Sources */,
 				3E7EB0932029CA8400A4051C /* String+Utils.swift in Sources */,
-				E55758201DD2584F00CCC37A /* ResultParser.swift in Sources */,
 				3E7EB08A2029C49700A4051C /* ComposersFlow.swift in Sources */,
 				3E91AB561E9A3E520043003E /* SearchTableViewController.swift in Sources */,
 				3E7EB0982029CBFD00A4051C /* VideoSearchService.swift in Sources */,

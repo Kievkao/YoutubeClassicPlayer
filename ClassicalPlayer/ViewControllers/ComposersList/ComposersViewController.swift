@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxFlow
 
 class ComposersViewController: SearchTableViewController, ComposersDataConsumer {
     var viewModel: ComposersViewModel!
@@ -14,8 +15,6 @@ class ComposersViewController: SearchTableViewController, ComposersDataConsumer 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let factory = NetworkServiceFactory()
-        viewModel = ComposersViewModel(composersService: factory.composersService())
         viewModel.dataConsumer = self
         setupSearchController()
         startComposersLoading()
@@ -64,3 +63,11 @@ class ComposersViewController: SearchTableViewController, ComposersDataConsumer 
         tableView.reloadData()
     }
 }
+
+extension ComposersViewController {
+    class func instantiate() -> ComposersViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ComposersViewController") as! ComposersViewController
+    }
+}
+
+extension ComposersViewController: Stepper { }

@@ -9,30 +9,33 @@
 import RxFlow
 import RxSwift
 
-//class ComposersFlow: Flow {
-//    var root: UIViewController {
-//        return self.rootViewController
-//    }
-//
-//    private let rootViewController: UINavigationController
-//
-//    init(with service: MoviesService) {
-//        self.rootViewController = UINavigationController()
-//        self.rootViewController.setNavigationBarHidden(true, animated: false)
-//        self.service = service
-//    }
-//
-//    func navigate(to step: Step) -> NextFlowItems {
-//        guard let step = step as? DemoStep else { return NextFlowItems.stepNotHandled }
-//
-//        switch step {
-//        case .apiKey:
-//            return navigationToApiScreen()
-//        case .apiKeyIsComplete:
-//            return navigationToDashboardScreen()
-//        default:
-//            return NextFlowItems.stepNotHandled
-//        }
-//    }
-//}
+class ComposersFlow: Flow {
+    var root: UIViewController {
+        return self.rootViewController
+    }
 
+    private let rootViewController: UINavigationController
+    private let service: ComposersServiceProtocol
+
+    init(service: ComposersServiceProtocol) {
+        self.service = service
+        self.rootViewController = UINavigationController()
+    }
+
+    func navigate(to step: Step) -> NextFlowItems {
+        guard let step = step as? AppStep else { return NextFlowItems.stepNotHandled }
+
+        switch step {
+        case .composers:
+            return navigationToComposersScreen()
+        }
+    }
+    
+    private func navigationToComposersScreen () -> NextFlowItems {
+        let composersViewController = ComposersViewController.instantiate()
+        composersViewController.viewModel = ComposersViewModel(composersService: service)
+        
+        rootViewController.pushViewController(composersViewController, animated: false)
+        return NextFlowItems.one(flowItem: NextFlowItem(nextPresentable: composersViewController, nextStepper: composersViewController))
+    }
+}

@@ -11,7 +11,6 @@ import Alamofire
 import AlamofireImage
 
 class ImagesLoader {
-
     private let imageCache = AutoPurgingImageCache()
     private let ongoingRequests = NSMapTable<NSURL, DataRequest> (keyOptions: NSPointerFunctions.Options.strongMemory, valueOptions: NSPointerFunctions.Options.weakMemory)
 
