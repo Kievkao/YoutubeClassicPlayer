@@ -16,7 +16,7 @@ class PlaybackViewController: UIViewController {
 
     private(set) var video: Video!
 
-    var dataProvider: PlaybackDataProvider! {
+    var viewModel: PlaybackViewModel! {
         didSet {
             PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
         }
@@ -29,7 +29,7 @@ class PlaybackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        video = dataProvider.currentVideo()
+        video = viewModel.currentVideo()
 
         setProgressIndicatorVisibility(true)
         setupTitles()
@@ -66,13 +66,13 @@ class PlaybackViewController: UIViewController {
 
     @IBAction func previousButtonAction(_ sender: UIButton) {
         setProgressIndicatorVisibility(true)
-        video = dataProvider.nextVideo()
+        video = viewModel.nextVideo()
         playVideo()
     }
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
         setProgressIndicatorVisibility(true)
-        video = dataProvider.nextVideo()
+        video = viewModel.nextVideo()
         playVideo()
     }
 

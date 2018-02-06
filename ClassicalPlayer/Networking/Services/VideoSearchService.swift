@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol VideoSearchServiceProtocol {
-    func searchVideos(_ query: String, portionSize: UInt, pageToken : String?, completion: @escaping ([Video]?, Error?) -> Void)
+    func searchVideos(_ query: String, portionSize: UInt, pageToken : String?, completion: @escaping ([Video]?, String?, Error?) -> Void)
 }
 
 final class VideoSearchService: VideoSearchServiceProtocol {
@@ -19,7 +19,7 @@ final class VideoSearchService: VideoSearchServiceProtocol {
         self.router = router
     }
     
-    func searchVideos(_ query: String, portionSize: UInt, pageToken : String?, completion: @escaping ([Video]?, Error?) -> Void) {
+    func searchVideos(_ query: String, portionSize: UInt, pageToken : String?, completion: @escaping ([Video]?, String?, Error?) -> Void) {
         var params: [String: String] = ["part" : "snippet", "type": "video", "q" : query, "maxResults" : String(portionSize)]
         
         if let pageToken = pageToken {
@@ -28,24 +28,25 @@ final class VideoSearchService: VideoSearchServiceProtocol {
         
         guard let request = router.request(method: .get, params: params) else { return }
         
-        Alamofire.request(request).responseJSON { response in
+        Alamofire.request(request).responseJSON(options: .allowFragments) { response in
             let error = response.error
             guard error == nil else {
-                completion(nil, error)
+                completion(nil, pageToken, error)
                 return
             }
             
             guard let json = response.result.value as? [String: AnyObject] else {
-                completion(nil, ParsingError.jsonCast)
+                completion(nil, pageToken, ParsingError.jsonCast)
                 return
             }
             
-            guard let results = json["results"] as? [[String: AnyObject]] else {
-                completion(nil, ParsingError.responseStructure)
+            guard let results = json["items"] as? [[String: AnyObject]] else {
+                completion(nil, pageToken, ParsingError.responseStructure)
                 return
             }
             
-            completion(results.map { Video(json: $0) }, nil)
+            let nextPageToken = json["nextPageToken"] as? String
+            completion(results.map { Video(json: $0) }, nextPageToken, nil)
         }
     }
 }

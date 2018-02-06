@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlaybackDataProvider {
+class PlaybackViewModel {
 
     let videos: [Video]
     private(set) var currentIndex = 0

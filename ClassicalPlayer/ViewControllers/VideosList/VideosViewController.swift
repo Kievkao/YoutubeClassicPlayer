@@ -13,14 +13,15 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     let remainedCellsBeforeLoadMore = 5
     let tableViewEstimatedRowHeight: CGFloat = 50.0
 
-    private var dataProvider: ComposerVideosDataProvider!
+    private var viewModel: VideosViewModel!
     
     private(set) var isDataLoading = false
 
     var composer: Composer? {
         didSet {
-            dataProvider = ComposerVideosDataProvider(composerName:composer!.name!, portionSize: 20)
-            dataProvider.dataConsumer = self
+            let factory = NetworkServiceFactory()
+            viewModel = VideosViewModel(videosService: factory.videoSearchService(), composerName:composer!.name!, portionSize: 20)
+            viewModel.dataConsumer = self
         }
     }
 
@@ -39,7 +40,7 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     private func startVideosLoading() {
         setProgressIndicatorVisibility(true)
         isDataLoading = true
-        dataProvider.loadNextVideos()
+        viewModel.loadNextVideos()
     }
 
     //MARK: ComposerVideosDataConsumer
@@ -53,31 +54,31 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     //MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataProvider.numberOfVideos()
+        return viewModel.numberOfVideos()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompositionCell", for: indexPath) as! CompositionCell
-        let video = dataProvider.videoForIndexPath(indexPath: indexPath)
+        let video = viewModel.videoForIndexPath(indexPath: indexPath)
 
         configureCell(cell: cell, withVideo: video)
 
         if needToLoadNewPortion(indexPath: indexPath) {
-            dataProvider.loadNextVideos()
+            viewModel.loadNextVideos()
         }
         
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        dataProvider.cancelImageLoadingFor(video: dataProvider.videoForIndexPath(indexPath: indexPath));
+        viewModel.cancelImageLoadingFor(video: viewModel.videoForIndexPath(indexPath: indexPath));
     }
 
     private func configureCell(cell: CompositionCell, withVideo video: Video) {
         cell.setName(name: video.title!)
         cell.setThumbnail(image: UIImage.placeholderImage())
 
-        dataProvider.loadImageFor(video: video) { (image) in
+        viewModel.loadImageFor(video: video) { (image) in
             if let image = image {
                 cell.setThumbnail(image: image)
             }
@@ -85,7 +86,7 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     }
 
     private func needToLoadNewPortion(indexPath: IndexPath) -> Bool {
-        if !isDataLoading && indexPath.row > (dataProvider.numberOfVideos() - remainedCellsBeforeLoadMore) {
+        if !isDataLoading && indexPath.row > (viewModel.numberOfVideos() - remainedCellsBeforeLoadMore) {
             isDataLoading = true
             return true
         }
@@ -99,7 +100,7 @@ class VideosViewController: UITableViewController, ComposerVideosDataConsumer {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let playbackViewController = segue.destination as! PlaybackViewController
 
-        playbackViewController.dataProvider = PlaybackDataProvider(videos: dataProvider.allVideos(), currentIndex: tableView.indexPathForSelectedRow!.row)
+        playbackViewController.viewModel = PlaybackViewModel(videos: viewModel.allVideos(), currentIndex: tableView.indexPathForSelectedRow!.row)
         playbackViewController.composerName = composer?.name
     }
 }

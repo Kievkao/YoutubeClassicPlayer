@@ -9,16 +9,14 @@
 import UIKit
 
 class ComposersViewController: SearchTableViewController, ComposersDataConsumer {
-
-    private lazy var dataProvider: ComposersDataProvider = {
-        let composersProvider = ComposersDataProvider()
-        composersProvider.dataConsumer = self
-        return composersProvider
-    }()
+    var viewModel: ComposersViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let factory = NetworkServiceFactory()
+        viewModel = ComposersViewModel(composersService: factory.composersService())
+        viewModel.dataConsumer = self
         setupSearchController()
         startComposersLoading()
     }
@@ -27,7 +25,7 @@ class ComposersViewController: SearchTableViewController, ComposersDataConsumer 
 
     func startComposersLoading() {
         setProgressIndicatorVisibility(true)
-        dataProvider.loadComposers()
+        viewModel.loadComposers()
     }
 
     func composersDidLoad(composers: [Composer]) {

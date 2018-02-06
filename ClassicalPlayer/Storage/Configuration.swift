@@ -51,7 +51,7 @@ final class YoutubeConfiguration: Configuration {
     }
     
     var startPath: String {
-        return configDict["youtubeApiPath"] as! String
+        return configDict["youtubeApiStartPath"] as! String
     }
     
     var scheme: String {
@@ -59,10 +59,10 @@ final class YoutubeConfiguration: Configuration {
     }
     
     var apiKey: String? {
-        return configDict["youtubeApiKey"] as! String
+        return configDict["youtubeApiKey"] as? String
     }
     
     var apiKeyParameter: String? {
-        return configDict["youtubeApiKeyParameter"] as! String
+        return configDict["youtubeApiKeyParameter"] as? String
     }
 }
