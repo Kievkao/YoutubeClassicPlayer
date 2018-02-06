@@ -10,7 +10,12 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ImagesLoader {
+protocol ImagesLoaderServiceProtocol {
+    func loadImageFor(imageURL: URL, completion:@escaping (_ image : UIImage?) -> Void)
+    func cancelImageLoadingFor(imageURL: URL)
+}
+
+class ImagesLoaderService: ImagesLoaderServiceProtocol {
     private let imageCache = AutoPurgingImageCache()
     private let ongoingRequests = NSMapTable<NSURL, DataRequest> (keyOptions: NSPointerFunctions.Options.strongMemory, valueOptions: NSPointerFunctions.Options.weakMemory)
 

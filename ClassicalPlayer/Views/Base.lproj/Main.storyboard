@@ -41,7 +41,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="pMt-0j-vP1" id="2nY-sU-89N"/>
-                                    <segue destination="njy-Da-Ckp" kind="show" id="wz9-8A-lOR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,13 +58,13 @@
         <!--Videos-->
         <scene sceneID="xEo-Ly-ku3">
             <objects>
-                <tableViewController storyboardIdentifier="compositionsVC" title="Videos" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="VideosViewController" title="Videos" id="njy-Da-Ckp" customClass="VideosViewController" customModule="ClassicalPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Nx-4h-xa3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompositionCell" rowHeight="50" id="rP3-2O-mqO" userLabel="CompositionCell" customClass="CompositionCell" customModule="ClassicalPlayer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" rowHeight="50" id="rP3-2O-mqO" userLabel="VideoCell" customClass="VideoCell" customModule="ClassicalPlayer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rP3-2O-mqO" id="tBT-k8-cpf">
@@ -98,7 +97,6 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="DO6-Fm-X4m" id="c4R-J1-1uG"/>
                                     <outlet property="thumbnailImageView" destination="6P8-ao-mra" id="Qn4-9O-Gdl"/>
-                                    <segue destination="Ncb-zQ-v3K" kind="show" id="HGU-4j-7Ft"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,14 +123,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bYB-YH-qut">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9v-Ma-BQJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jd-Ax-x8U">
-                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="323.5" width="375" height="323.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frederic Chopin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-Ix-0Y9">
                                                 <rect key="frame" x="8" y="8" width="359" height="20.5"/>
@@ -147,7 +145,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuE-RS-BRO" userLabel="previousBtn">
-                                                <rect key="frame" x="40" y="146" width="80" height="80"/>
+                                                <rect key="frame" x="40" y="157" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="dZc-pC-ef6"/>
                                                     <constraint firstAttribute="height" constant="80" id="vJO-0q-l1g"/>
@@ -158,7 +156,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0I-xz-iFw" userLabel="nextBtn">
-                                                <rect key="frame" x="255" y="146" width="80" height="80"/>
+                                                <rect key="frame" x="255" y="157" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="DkR-Ls-xqh"/>
                                                     <constraint firstAttribute="height" constant="80" id="pdd-td-Llw"/>

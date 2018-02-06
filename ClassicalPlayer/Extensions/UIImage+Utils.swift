@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    static func placeholderImage() -> UIImage {
+    static func placeholder() -> UIImage {
         return UIImage(named: "placeholder")!
     }
 }

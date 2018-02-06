@@ -1,6 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.5
 github "Alamofire/AlamofireImage" ~> 3.3
-github "jdg/MBProgressHUD" ~> 1.1.0
 github "0xced/XCDYouTubeKit" ~> 2.5
-github "realm/realm-cocoa"
 github "RxSwiftCommunity/RxFlow"

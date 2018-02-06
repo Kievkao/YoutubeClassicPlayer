@@ -7,18 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
-
-class VideoRealm: Object {
-    @objc dynamic var title: String = ""
-    @objc dynamic var videoId: String = ""
-    @objc dynamic var thumbnailURL: String?
-    @objc dynamic var composerName: String = ""
-
-    func plain() -> Video {
-        return Video(title: title, videoId: videoId, thumbnailURL: thumbnailURL != nil ? URL(string: thumbnailURL!) : nil, composerName: composerName)
-    }
-}
 
 struct Video {
     let title: String?
@@ -37,14 +25,7 @@ struct Video {
             thumbnailURL = nil
         }
     }
-    
-    init(title: String?, videoId: String?, thumbnailURL: URL?, composerName: String?) {
-        self.title = title
-        self.videoId = videoId
-        self.thumbnailURL = thumbnailURL
-        self.composerName = composerName
-    }
-    
+
     static func predicateForComposerName(_ name: String) -> NSPredicate {
         return NSPredicate(format: "composerName = %@", name)
     }

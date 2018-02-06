@@ -29,6 +29,7 @@ enum ParsingError: Error {
 protocol NetworkServiceFactoryProtocol {
     func composersService() -> ComposersServiceProtocol
     func videoSearchService() -> VideoSearchServiceProtocol
+    func imagesLoaderService() -> ImagesLoaderServiceProtocol
 }
 
 final class NetworkServiceFactory: NetworkServiceFactoryProtocol {
@@ -40,5 +41,9 @@ final class NetworkServiceFactory: NetworkServiceFactoryProtocol {
     func videoSearchService() -> VideoSearchServiceProtocol {
         let router = APIRouter(config: YoutubeConfiguration(), path: .videos)
         return VideoSearchService(router: router)
+    }
+    
+    func imagesLoaderService() -> ImagesLoaderServiceProtocol {
+        return imagesLoaderService()
     }
 }
