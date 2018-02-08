@@ -15,6 +15,8 @@ protocol ComposersViewModelProtocol {
     var errorSubject: PublishSubject<String> { get }
     var progressSubject: PublishSubject<Bool> { get }
     var isEnabled: Bool { get set }
+    
+    func selectComposer(_ composer: Composer)
 }
 
 enum SearchError: Error {
@@ -60,6 +62,10 @@ class ComposersViewModel: ComposersViewModelProtocol {
             
             strongSelf.composers.value = composers
         }
+    }
+    
+    func selectComposer(_ composer: Composer) {
+        step.accept(AppStep.videos(composer: composer))
     }
 }
 

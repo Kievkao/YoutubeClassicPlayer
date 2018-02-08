@@ -8,10 +8,11 @@
 
 import UIKit
 import XCDYouTubeKit
+import RxFlow
 import RxSwift
 import RxCocoa
 
-class PlaybackViewController: UIViewController {
+final class PlaybackViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var composerNameLabel: UILabel!
@@ -31,12 +32,10 @@ class PlaybackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUI()
         bindViewModel()
     }
 
     private func setupUI() {
-        videoTitleLabel.text = viewModel.videoTitle
         composerNameLabel.text = viewModel.composerName
     }
     
@@ -45,11 +44,13 @@ class PlaybackViewController: UIViewController {
             .bind(to: rx.progress)
             .disposed(by: disposeBag)
         
-        viewModel.videoId.subscribe(onNext: { [weak self] videoId in
+        viewModel.video.subscribe(onNext: { [weak self] video in
             guard let strongSelf = self else { return }
             
+            strongSelf.videoTitleLabel.text = video.title
+            
             PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
-            PlaybackHolder.shared.videoController.videoIdentifier = videoId
+            PlaybackHolder.shared.videoController.videoIdentifier = video.videoId
             PlaybackHolder.shared.videoController.present(in: strongSelf.videoContainerView)
             PlaybackHolder.shared.videoController.moviePlayer.play()
             
@@ -65,6 +66,12 @@ class PlaybackViewController: UIViewController {
 
     @IBAction func nextButtonAction(_ sender: UIButton) {
         viewModel.getNextVideo()
+    }
+}
+
+extension PlaybackViewController: StoryboardBased {
+    static func instantiate() -> PlaybackViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlaybackViewController") as! PlaybackViewController
     }
 }
 

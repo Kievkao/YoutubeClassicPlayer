@@ -8,12 +8,12 @@
 
 import Foundation
 import RxSwift
+import RxFlow
 import XCDYouTubeKit
 
 protocol PlaybackViewModelProtocol {
-    var videoId: Observable<String> { get }
+    var video: Observable<Video> { get }
     var progressSubject: PublishSubject<Bool> { get }
-    var videoTitle: String? { get }
     var composerName: String? { get }
     
     func getNextVideo()
@@ -21,27 +21,22 @@ protocol PlaybackViewModelProtocol {
 }
 
 class PlaybackViewModel: PlaybackViewModelProtocol {
-    let videos: [Video]
-    private(set) var currentIndex = 0
+    private let videos: [Video]
+    private let videoVariable: Variable<Video>
     private let composer: Composer
-    
-    var video: Video { return videos[currentIndex] }
+    private(set) var currentIndex = 0
+
+    var video: Observable<Video> { return videoVariable.asObservable() }
+    var composerName: String? { return composer.name }
     let progressSubject = PublishSubject<Bool>()
     
-    var videoTitle: String? { return video.title }
-    var composerName: String? { return composer.name }
-    
-    var videoId: Observable<String> { return videoIdVariable.asObservable().filter { $0 != nil }.map { $0! } }
-    private let videoIdVariable: Variable<String?>
-
     init(composer: Composer, videos: [Video], currentIndex: Int) {
         self.composer = composer
         self.videos = videos
         self.currentIndex = currentIndex
-        self.videoIdVariable = Variable(videos[currentIndex].videoId)
+        self.videoVariable = Variable(videos[currentIndex])
         
         PlaybackHolder.shared.videoController = XCDYouTubeVideoPlayerViewController()
-        
         subscribeForNotifications()
     }
     
@@ -68,12 +63,14 @@ class PlaybackViewModel: PlaybackViewModelProtocol {
     func getNextVideo() {
         progressSubject.onNext(true)
         currentIndex = (currentIndex < videos.count - 1) ? currentIndex + 1 : currentIndex
-        videoIdVariable.value = videos[currentIndex].videoId
+        videoVariable.value = videos[currentIndex]
     }
     
     func getPreviousVideo() {
         progressSubject.onNext(true)
         currentIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex
-        videoIdVariable.value = videos[currentIndex].videoId
+        videoVariable.value = videos[currentIndex]
     }
 }
+
+extension PlaybackViewModel: Stepper { }

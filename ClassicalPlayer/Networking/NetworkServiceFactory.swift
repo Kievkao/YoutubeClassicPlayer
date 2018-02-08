@@ -44,6 +44,6 @@ final class NetworkServiceFactory: NetworkServiceFactoryProtocol {
     }
     
     func imagesLoaderService() -> ImagesLoaderServiceProtocol {
-        return imagesLoaderService()
+        return ImagesLoaderService()
     }
 }

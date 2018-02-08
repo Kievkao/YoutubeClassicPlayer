@@ -29,7 +29,9 @@ class ComposersFlow: Flow {
         case .composers:
             return navigationToComposersScreen()
         case .videos(let composer):
-            return navigationToVideosScreen(composer: composer)
+            return startVideosFlow(composer: composer)
+        default:
+            return NextFlowItems.stepNotHandled
         }
     }
     
@@ -42,13 +44,9 @@ class ComposersFlow: Flow {
         return NextFlowItems.one(flowItem: NextFlowItem(nextPresentable: composersViewController, nextStepper: viewModel))
     }
     
-    private func navigationToVideosScreen(composer: Composer) -> NextFlowItems {
-        let videosViewController = VideosViewController.instantiate()
-        let viewModel = VideosViewModel(videosService: networkServicesFactory.videoSearchService(), imagesLoader: networkServicesFactory.imagesLoaderService(), composer: composer)
-        videosViewController.viewModel = viewModel
-        
-        rootViewController.pushViewController(videosViewController, animated: false)
-        
-        return NextFlowItems.one(flowItem: NextFlowItem(nextPresentable: videosViewController, nextStepper: viewModel))
+    private func startVideosFlow(composer: Composer) -> NextFlowItems {
+        let videosFlow = VideosFlow(rootViewController: rootViewController, networkServicesFactory: networkServicesFactory)
+
+        return NextFlowItems.one(flowItem: NextFlowItem(nextPresentable: videosFlow, nextStepper: OneStepper(withSingleStep: AppStep.videos(composer: composer))))
     }
 }

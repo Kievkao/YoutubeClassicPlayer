@@ -25,8 +25,4 @@ struct Video {
             thumbnailURL = nil
         }
     }
-
-    static func predicateForComposerName(_ name: String) -> NSPredicate {
-        return NSPredicate(format: "composerName = %@", name)
-    }
 }

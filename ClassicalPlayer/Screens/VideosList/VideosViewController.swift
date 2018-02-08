@@ -80,10 +80,7 @@ final class VideosViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let playbackViewController = segue.destination as! PlaybackViewController
-//        
-//        playbackViewController.viewModel = PlaybackViewModel(videos: viewModel.videos.value, currentIndex: tableView.indexPathForSelectedRow!.row)
-//        playbackViewController.composerName = composer?.name
+        viewModel.selectVideo(at: indexPath.row)
     }
 
     private func needToLoadNewPortion(indexPath: IndexPath) -> Bool {

@@ -10,6 +10,7 @@
 		3E1A10F6202C8F3800F658D1 /* ImagesLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A10F5202C8F3700F658D1 /* ImagesLoaderService.swift */; };
 		3E1A10F8202C8F3E00F658D1 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A10F7202C8F3D00F658D1 /* Connectivity.swift */; };
 		3E1A10FA202CA12D00F658D1 /* VideoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A10F9202CA12D00F658D1 /* VideoCellViewModel.swift */; };
+		3E1A10FD202CB5C200F658D1 /* VideosFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A10FC202CB5C200F658D1 /* VideosFlow.swift */; };
 		3E34ADCB202A052A0097BA6C /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E34ADCA202A052A0097BA6C /* AppStep.swift */; };
 		3E34ADCD202A08840097BA6C /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E34ADCC202A08840097BA6C /* StoryboardBased.swift */; };
 		3E34ADCF202A0FB00097BA6C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E34ADCE202A0FB00097BA6C /* AppCoordinator.swift */; };
@@ -60,6 +61,7 @@
 		3E1A10F5202C8F3700F658D1 /* ImagesLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesLoaderService.swift; sourceTree = "<group>"; };
 		3E1A10F7202C8F3D00F658D1 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		3E1A10F9202CA12D00F658D1 /* VideoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellViewModel.swift; sourceTree = "<group>"; };
+		3E1A10FC202CB5C200F658D1 /* VideosFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosFlow.swift; sourceTree = "<group>"; };
 		3E34ADCA202A052A0097BA6C /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		3E34ADCC202A08840097BA6C /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBased.swift; sourceTree = "<group>"; };
 		3E34ADCE202A0FB00097BA6C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				3E34ADCE202A0FB00097BA6C /* AppCoordinator.swift */,
 				3E7EB0892029C49700A4051C /* ComposersFlow.swift */,
+				3E1A10FC202CB5C200F658D1 /* VideosFlow.swift */,
 				3E34ADCA202A052A0097BA6C /* AppStep.swift */,
 			);
 			path = Flows;
@@ -192,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				3E1A10F4202C8EFE00F658D1 /* Cells */,
-				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
 				E565F6731DD7137200EEEFD4 /* ComposersViewModel.swift */,
+				E5F4BEAE1DD0E4E8003E5DDA /* ComposersViewController.swift */,
 			);
 			path = ComposersList;
 			sourceTree = "<group>";
@@ -211,7 +214,6 @@
 		E565F67D1DD7381400EEEFD4 /* Playback */ = {
 			isa = PBXGroup;
 			children = (
-				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E565F67E1DD73D8700EEEFD4 /* PlaybackViewModel.swift */,
 				E564DEA71DD26FF1005AFC3B /* PlaybackViewController.swift */,
 			);
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7EB08B2029C68000A4051C /* Storage */,
+				E56B6FCA1DD38AAB007BBBE4 /* PlaybackHolder.swift */,
 				E5F4BEBC1DD2145B003E5DDA /* Composer.swift */,
 				E5F4BEB71DD0ED79003E5DDA /* Video.swift */,
 			);
@@ -484,6 +487,7 @@
 				E564DEA81DD26FF1005AFC3B /* PlaybackViewController.swift in Sources */,
 				3E34ADCD202A08840097BA6C /* StoryboardBased.swift in Sources */,
 				E565F6701DD712B100EEEFD4 /* UIViewController+Utils.swift in Sources */,
+				3E1A10FD202CB5C200F658D1 /* VideosFlow.swift in Sources */,
 				E565F6761DD7140400EEEFD4 /* VideosViewModel.swift in Sources */,
 				E564DEA41DD25D34005AFC3B /* ComposerCell.swift in Sources */,
 			);

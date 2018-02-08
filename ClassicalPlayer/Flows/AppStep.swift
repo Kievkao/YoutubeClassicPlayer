@@ -11,4 +11,5 @@ import RxFlow
 enum AppStep: Step {
     case composers
     case videos(composer: Composer)
+    case playback(composer: Composer, videos: [Video], initialIndex: Int)
 }

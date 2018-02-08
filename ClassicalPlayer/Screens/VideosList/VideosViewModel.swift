@@ -18,6 +18,7 @@ protocol VideosViewModelProtocol {
     var imagesLoader: ImagesLoaderServiceProtocol { get }
     
     func loadNextPage()
+    func selectVideo(at index: Int)
 }
 
 class VideosViewModel: VideosViewModelProtocol {
@@ -58,6 +59,10 @@ class VideosViewModel: VideosViewModelProtocol {
             strongSelf.pageToken = pageToken
             strongSelf.videos.value.append(contentsOf: videos)
        }
+    }
+    
+    func selectVideo(at index: Int) {
+        step.accept(AppStep.playback(composer: composer, videos: videos.value, initialIndex: index))
     }
 }
 
