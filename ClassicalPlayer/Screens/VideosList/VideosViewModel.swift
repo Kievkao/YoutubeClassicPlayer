@@ -14,7 +14,6 @@ protocol VideosViewModelProtocol {
     var videos: Variable<[Video]> { get }
     var errorSubject: PublishSubject<String> { get }
     var progressSubject: PublishSubject<Bool> { get }
-    var isEnabled: Bool { get set }
     var imagesLoader: ImagesLoaderServiceProtocol { get }
     
     func loadNextPage()
@@ -31,13 +30,6 @@ class VideosViewModel: VideosViewModelProtocol {
     let progressSubject = PublishSubject<Bool>()
     let imagesLoader: ImagesLoaderServiceProtocol
     
-    var isEnabled: Bool = false {
-        didSet {
-            //process double call
-            loadNextPage()
-        }
-    }
-
     init(videosService: VideoSearchServiceProtocol, imagesLoader: ImagesLoaderServiceProtocol, composer: Composer) {
         self.videosService = videosService
         self.imagesLoader = imagesLoader

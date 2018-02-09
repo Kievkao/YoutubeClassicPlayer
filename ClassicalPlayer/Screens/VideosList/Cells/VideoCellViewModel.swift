@@ -21,7 +21,7 @@ class VideoCellViewModel: VideoCellViewModelProtocol {
     private let video: Video
     private let imagesLoader: ImagesLoaderServiceProtocol
     
-    var name: String? { return video.composerName }
+    var name: String? { return video.title }
     var image: Observable<UIImage?> { return imageVariable.asObservable() }
     private let imageVariable = Variable<UIImage?>(nil)
     

@@ -26,18 +26,16 @@ final class VideosViewController: UITableViewController {
 
         setupUI()
         bindViewModel()
+        
+        viewModel.loadNextPage()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.isEnabled = true
-    }
-
     private func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50.0
         tableView.tableFooterView = UIView()
+        
+        view.addSubview(activityIndicator)
     }
 
     private func bindViewModel() {

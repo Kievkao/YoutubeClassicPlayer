@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-0j-vP1">
-                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="335" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -35,6 +35,9 @@
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                     <constraints>
+                                        <constraint firstItem="pMt-0j-vP1" firstAttribute="top" secondItem="Eml-6T-Ca7" secondAttribute="topMargin" id="S0e-1n-y19"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pMt-0j-vP1" secondAttribute="trailing" constant="8" id="Zgs-ay-FPk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pMt-0j-vP1" secondAttribute="bottom" id="iBD-Ep-Lve"/>
                                         <constraint firstItem="pMt-0j-vP1" firstAttribute="leading" secondItem="Eml-6T-Ca7" secondAttribute="leadingMargin" id="mfg-Zg-MGE"/>
                                         <constraint firstItem="pMt-0j-vP1" firstAttribute="centerY" secondItem="Eml-6T-Ca7" secondAttribute="centerY" id="sb3-PM-MKK"/>
                                     </constraints>
@@ -72,25 +75,26 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6P8-ao-mra">
-                                            <rect key="frame" x="8" y="-1" width="50" height="50"/>
+                                            <rect key="frame" x="8" y="0.0" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="2sq-wX-7MS"/>
                                                 <constraint firstAttribute="width" constant="50" id="pLL-BD-5Xu"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-Fm-X4m">
-                                            <rect key="frame" x="66" y="14" width="42" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-Fm-X4m">
+                                            <rect key="frame" x="66" y="14" width="285" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="6P8-ao-mra" firstAttribute="centerY" secondItem="tBT-k8-cpf" secondAttribute="centerY" id="0b5-jd-ELS"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6P8-ao-mra" secondAttribute="bottom" id="03D-qF-nz2"/>
+                                        <constraint firstItem="6P8-ao-mra" firstAttribute="top" secondItem="tBT-k8-cpf" secondAttribute="top" id="2lB-TR-Ktj"/>
                                         <constraint firstItem="DO6-Fm-X4m" firstAttribute="top" secondItem="tBT-k8-cpf" secondAttribute="topMargin" constant="3" id="CDJ-2y-bKQ"/>
                                         <constraint firstItem="6P8-ao-mra" firstAttribute="leading" secondItem="tBT-k8-cpf" secondAttribute="leading" constant="8" id="R7b-sm-MGP"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="DO6-Fm-X4m" secondAttribute="bottom" constant="3" id="enO-qn-RV6"/>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DO6-Fm-X4m" secondAttribute="trailing" constant="8" id="eyV-ft-rmd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DO6-Fm-X4m" secondAttribute="trailing" constant="8" id="eyV-ft-rmd"/>
                                         <constraint firstItem="DO6-Fm-X4m" firstAttribute="leading" secondItem="6P8-ao-mra" secondAttribute="trailing" constant="8" id="i8L-Q4-duJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -205,6 +209,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YOf-gu-6IK">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6I-W5-9l2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ia-0c-aEF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
@@ -218,7 +223,6 @@
                         <segue destination="BoN-gL-Bfl" kind="relationship" relationship="rootViewController" id="tYO-Sn-GXo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W6I-W5-9l2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="791.15442278860576"/>
         </scene>

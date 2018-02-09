@@ -247,9 +247,9 @@
 				E5F4BEB41DD0E748003E5DDA /* Views */,
 				E5F4BEB21DD0E734003E5DDA /* Networking */,
 				E5F4BEB61DD0ED68003E5DDA /* Models */,
-				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E565F66E1DD712A100EEEFD4 /* Extensions */,
 				3E91AB541E9A3E270043003E /* Protocols */,
+				E5F4BEB51DD0E759003E5DDA /* Resources */,
 				E5F4BE761DD0DF86003E5DDA /* AppDelegate.swift */,
 			);
 			path = ClassicalPlayer;

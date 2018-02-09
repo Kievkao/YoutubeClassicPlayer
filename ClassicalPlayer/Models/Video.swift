@@ -12,7 +12,6 @@ struct Video {
     let title: String?
     let videoId: String?
     var thumbnailURL: URL?
-    var composerName: String?
     
     init(json: [String: AnyObject]) {
         videoId = json["id"]?["videoId"] as? String

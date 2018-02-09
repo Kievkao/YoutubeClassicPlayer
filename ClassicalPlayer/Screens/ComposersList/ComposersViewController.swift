@@ -45,12 +45,8 @@ final class ComposersViewController: UITableViewController {
 
         setupUI()
         bindViewModel()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        viewModel.isEnabled = true
+        viewModel.loadComposers()
     }
     
     private func setupUI() {

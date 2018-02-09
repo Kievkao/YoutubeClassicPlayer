@@ -14,8 +14,8 @@ protocol ComposersViewModelProtocol {
     var composers: Variable<[Composer]> { get }
     var errorSubject: PublishSubject<String> { get }
     var progressSubject: PublishSubject<Bool> { get }
-    var isEnabled: Bool { get set }
-    
+
+    func loadComposers()
     func selectComposer(_ composer: Composer)
 }
 
@@ -40,17 +40,13 @@ class ComposersViewModel: ComposersViewModelProtocol {
     let errorSubject = PublishSubject<String>()
     let progressSubject = PublishSubject<Bool>()
     
-    var isEnabled: Bool = false {
-        didSet {
-            loadComposers()
-        }
-    }
-    
     init(composersService: ComposersServiceProtocol) {
         self.composersService = composersService
     }
 
-    private func loadComposers() {
+    func loadComposers() {
+        progressSubject.onNext(true)
+        
         composersService.loadComposers { [weak self] (composers, error) in
             defer { self?.progressSubject.onNext(false) }
             guard let strongSelf = self else { return }
